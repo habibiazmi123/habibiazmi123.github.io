@@ -12,6 +12,13 @@ const Socials = () => (
       GitHub
     </a>
     <a
+      href='https://www.linkedin.com/in/azmibanget'
+      className='text-xl opacity-60 hover:opacity-100 duration-150'
+      target="_blank" rel="noreferrer"
+    >
+      LinkedIn
+    </a>
+    <a
       href='https://instagram.com/m.habibiazmi'
       className='text-xl opacity-60 hover:opacity-100 duration-150'
       target="_blank" rel="noreferrer"
