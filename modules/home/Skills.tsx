@@ -10,7 +10,7 @@ const Toolbelt = () => (
     </div>
     <div className='w-full lg:w-2/3'>
       <p className='font-medium text-2xl tracking-tight mb-4'>
-        PHP | LARAVEL | JAVASCRIPT | TYPESCRIPT | 
+        PHP | LARAVEL | JAVASCRIPT | TYPESCRIPT |
       </p>
       <p className='font-medium text-2xl tracking-tight mb-4'>
         VUE.JS | REACT.JS | NODE.JS | TAILWIND |
