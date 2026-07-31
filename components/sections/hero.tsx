@@ -27,7 +27,7 @@ export function Hero() {
         />
       </div>
 
-      <div className="mx-auto grid max-w-6xl grid-cols-1 items-center gap-12 py-20 lg:grid-cols-12 lg:gap-16 lg:py-20">
+      <div className="mx-auto grid max-w-6xl grid-cols-1 items-center gap-12 py-5 lg:grid-cols-12 lg:gap-16 lg:py-5">
         {/* Text — 60%, primary focal point */}
         <div className="lg:col-span-7">
           {profile.available ? (

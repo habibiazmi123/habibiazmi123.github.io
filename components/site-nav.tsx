@@ -31,11 +31,16 @@ export function SiteNav() {
           href="#top"
           className="font-mono text-sm font-semibold tracking-tight"
         >
-          {profile.name.split(" ").slice(-1)[0]}
+          {profile.name}
           <span className="text-brand">.</span>
         </a>
 
-        <Scrollspy className="hidden items-center gap-1 md:flex" offset={80} targetRef={documentRef} history={false}>
+        <Scrollspy
+          className="hidden items-center gap-1 md:flex"
+          offset={80}
+          targetRef={documentRef}
+          history={false}
+        >
           {navItems.map((item) => (
             <a
               key={item.id}
