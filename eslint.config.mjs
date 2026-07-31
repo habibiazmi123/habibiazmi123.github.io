@@ -12,6 +12,8 @@ const eslintConfig = defineConfig([
     "out/**",
     "build/**",
     "next-env.d.ts",
+    // third-party registry components — not our code
+    "components/Particles.tsx",
   ]),
 ]);
 
