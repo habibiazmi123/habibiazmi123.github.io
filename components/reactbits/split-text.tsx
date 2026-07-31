@@ -71,8 +71,9 @@ const SplitText: React.FC<SplitTextProps> = ({
       if (el._rbsplitInstance) {
         try {
           el._rbsplitInstance.revert();
-        // eslint-disable-next-line @typescript-eslint/no-unused-vars
-        } catch (_err) {}
+        } catch {
+          // ponytail: revert may throw if instance was already torn down by gsap; safe to ignore
+        }
         el._rbsplitInstance = undefined;
       }
 
@@ -137,8 +138,9 @@ const SplitText: React.FC<SplitTextProps> = ({
         });
         try {
           splitInstance.revert();
-        // eslint-disable-next-line @typescript-eslint/no-unused-vars
-        } catch (_err) {}
+        } catch {
+          // ponytail: revert may throw if instance was already torn down by gsap; safe to ignore
+        }
         el._rbsplitInstance = undefined;
       };
     },
