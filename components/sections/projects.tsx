@@ -1,119 +1,205 @@
 import Image from "next/image"
-import { Bookmark, ExternalLink, FolderOpen, ArrowUpRight } from "lucide-react"
-import { Card, CardContent } from "@/components/ui/card"
-import { cn } from "@/lib/utils"
+import { ExternalLink, ArrowUpRight } from "lucide-react"
+import { SectionHeader } from "@/components/section-header"
 import { projects } from "@/lib/portfolio"
+import { cn } from "@/lib/utils"
 
-export function Projects() {
+function ProjectTag({ label, accent }: { label: string; accent: string }) {
   return (
-    <section id="projects" className="mx-auto max-w-6xl px-5 py-24 sm:py-32">
-      <div data-animate>
-        <p className="inline-flex items-center gap-2 rounded-full border border-border/70 bg-card/50 px-3.5 py-1.5 text-xs font-medium text-blue-400">
-          <FolderOpen className="size-3.5" />
-          SELECTED WORKS
-        </p>
-        <h2 className="mt-5 text-3xl font-semibold tracking-tight sm:text-4xl lg:text-5xl">
-          <span className="text-foreground">Featured</span>{" "}
-          <span className="bg-gradient-to-r from-emerald-400 via-blue-500 to-purple-500 bg-clip-text text-transparent">
-            Projects.
-          </span>
-        </h2>
-      </div>
+    <span className="inline-flex items-center gap-1.5 rounded-full border border-border/60 bg-muted/40 px-2.5 py-1 text-[0.65rem] font-semibold uppercase tracking-wider text-muted-foreground">
+      <span
+        className="size-1.5 rounded-full"
+        style={{ backgroundColor: accent }}
+      />
+      {label}
+    </span>
+  )
+}
 
-      <div
-        className="mt-8 flex items-end justify-between gap-6"
+function BrowserFrame({
+  children,
+  className,
+}: {
+  children: React.ReactNode
+  className?: string
+}) {
+  return (
+    <div
+      className={cn(
+        "relative flex flex-col overflow-hidden rounded-xl border border-border/60 bg-card shadow-sm",
+        className
+      )}
+    >
+      <div className="flex items-center gap-1.5 border-b border-border/40 bg-muted/50 px-3 py-2">
+        <span className="size-2 rounded-full bg-red-400/80" />
+        <span className="size-2 rounded-full bg-amber-400/80" />
+        <span className="size-2 rounded-full bg-emerald-400/80" />
+      </div>
+      <div className="relative flex-1 overflow-hidden bg-background">
+        {children}
+      </div>
+    </div>
+  )
+}
+
+function ProjectImage({
+  project,
+  className,
+  objectPosition = "center",
+}: {
+  project: (typeof projects)[number]
+  className?: string
+  objectPosition?: "center" | "top"
+}) {
+  return (
+    <BrowserFrame className={className}>
+      {project.image ? (
+        <Image
+          src={project.image}
+          alt={`${project.name} preview`}
+          fill
+          sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+          className={cn(
+            "object-cover transition-transform duration-700 group-hover:scale-105",
+            objectPosition === "top" ? "object-top" : "object-center"
+          )}
+        />
+      ) : (
+        <div
+          className="grid h-full place-items-center text-white/25"
+          style={{ backgroundColor: project.accent }}
+        >
+          <span className="font-mono text-4xl font-bold tracking-tighter select-none">
+            {project.name.slice(0, 2).toUpperCase()}
+          </span>
+        </div>
+      )}
+      <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/35 via-black/5 to-transparent" />
+    </BrowserFrame>
+  )
+}
+
+function ProjectCard({
+  project,
+  featured = false,
+}: {
+  project: (typeof projects)[number]
+  featured?: boolean
+}) {
+  if (featured) {
+    return (
+      <article
+        className="group relative overflow-hidden rounded-2xl border border-border/60 bg-card/40 transition-all duration-300 hover:-translate-y-1.5 hover:border-brand/40 hover:shadow-[0_24px_60px_-24px_rgba(0,0,0,0.6)]"
         data-animate
       >
-        <p className="max-w-xl text-sm leading-relaxed text-muted-foreground sm:text-base">
-          A selection of platforms across IAM, SaaS, HR tech, healthcare, and
-          civic tech.
-        </p>
-        <a
-          href="#projects"
-          className="inline-flex shrink-0 items-center gap-1.5 text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
-        >
-          View All Projects <ArrowUpRight className="size-4" />
-        </a>
-      </div>
-
-      <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-        {projects.map((p, i) => (
-          <Card
-            key={p.name}
-            data-animate
-            className={cn(
-              "group relative flex flex-col overflow-hidden rounded-2xl border-border/60 bg-card/40 backdrop-blur transition-all duration-300 hover:-translate-y-1.5 hover:border-brand/40 hover:shadow-[0_20px_60px_-20px_rgba(0,0,0,0.7)]",
-              p.href && "cursor-pointer"
-            )}
-          >
-            {p.href ? (
+        <div className="lg:grid lg:grid-cols-2">
+          <ProjectImage
+            project={project}
+            className="aspect-video lg:aspect-auto lg:min-h-[22rem]"
+            objectPosition="center"
+          />
+          <div className="flex flex-col justify-center p-6 sm:p-8 lg:p-10">
+            <p className="font-mono text-xs uppercase tracking-[0.2em] text-brand">
+              Featured Project
+            </p>
+            <h3 className="mt-3 text-2xl font-semibold tracking-tight text-foreground sm:text-3xl">
+              {project.name}
+            </h3>
+            {project.period ? (
+              <p className="mt-1 font-mono text-xs text-muted-foreground">
+                {project.period}
+              </p>
+            ) : null}
+            <p className="mt-4 max-w-lg text-sm leading-relaxed text-muted-foreground sm:text-base">
+              {project.description}
+            </p>
+            <div className="mt-6 flex flex-wrap gap-2">
+              {project.tags.map((t) => (
+                <ProjectTag key={t} label={t} accent={project.accent} />
+              ))}
+            </div>
+            {project.href ? (
               <a
-                href={p.href}
+                href={project.href}
                 target="_blank"
                 rel="noreferrer"
-                aria-label={`${p.name} (opens new tab)`}
-                className="absolute inset-0 z-10"
-              />
+                className="mt-8 inline-flex w-fit items-center gap-2 rounded-md bg-brand px-5 py-2.5 text-sm font-medium text-brand-foreground transition-opacity hover:opacity-90"
+              >
+                View project <ArrowUpRight className="size-4" />
+              </a>
             ) : null}
-            {/* index chip */}
-            <span className="absolute left-4 top-4 z-20 inline-flex items-center gap-1.5 rounded-full border border-white/15 bg-black/40 px-2.5 py-1 font-mono text-[0.6rem] text-white/70 backdrop-blur">
-              {String(i + 1).padStart(2, "0")}
-            </span>
-            {/* thumbnail — project screenshot or accent placeholder */}
-            <div
-              className="relative grid aspect-[16/10] place-items-center overflow-hidden"
-              style={p.image ? undefined : { backgroundColor: p.accent }}
-            >
-              {p.image ? (
-                <Image
-                  src={p.image}
-                  alt={`${p.name} preview`}
-                  fill
-                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                  className="object-cover object-top transition-transform duration-700 group-hover:scale-105"
-                />
-              ) : (
-                <span className="font-mono text-4xl font-semibold tracking-tighter text-white/15 select-none">
-                  {p.name.slice(0, 2).toUpperCase()}
-                </span>
-              )}
-              {/* bottom gradient wash for legibility */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black/45 via-transparent to-transparent" />
-            </div>
-            <CardContent className="flex flex-1 flex-col px-6 py-6">
-              <h3 className="text-lg font-semibold tracking-tight text-foreground">
-                {p.name}
-              </h3>
-              {p.period ? (
-                <p className="mt-1 font-mono text-xs text-muted-foreground">
-                  {p.period}
-                </p>
-              ) : null}
-              <p className="mt-3 flex-1 text-sm leading-relaxed text-muted-foreground">
-                {p.description}
+          </div>
+        </div>
+      </article>
+    )
+  }
+
+  return (
+    <article
+      className="group relative flex flex-col overflow-hidden rounded-2xl border border-border/60 border-l-[3px] bg-card/40 transition-all duration-300 hover:-translate-y-1.5 hover:border-brand/40 hover:shadow-[0_20px_50px_-20px_rgba(0,0,0,0.5)]"
+      style={{ borderLeftColor: project.accent }}
+      data-animate
+    >
+      <ProjectImage
+        project={project}
+        className="aspect-[16/10]"
+        objectPosition="center"
+      />
+      <div className="flex flex-1 flex-col p-5 sm:p-6">
+        <div className="flex items-start justify-between gap-3">
+          <div>
+            <h3 className="text-lg font-semibold tracking-tight text-foreground">
+              {project.name}
+            </h3>
+            {project.period ? (
+              <p className="mt-0.5 font-mono text-xs text-muted-foreground">
+                {project.period}
               </p>
-              <div className="mt-5 flex flex-wrap gap-1.5">
-                {p.tags.map((t) => (
-                  <span
-                    key={t}
-                    className="inline-flex items-center rounded-full border border-border/60 bg-muted/40 px-2.5 py-1 text-[0.65rem] font-semibold uppercase tracking-wider text-muted-foreground"
-                  >
-                    {t}
-                  </span>
-                ))}
-              </div>
-              <div className="mt-5 flex items-center justify-end gap-2 border-t border-border/40 pt-4">
-                <span className="grid size-8 place-items-center rounded-xl border border-border/60 bg-card/60 text-muted-foreground transition-colors group-hover:bg-card group-hover:text-foreground">
-                  <Bookmark className="size-4" />
-                </span>
-                {p.href ? (
-                  <span className="grid size-8 place-items-center rounded-xl border border-border/60 bg-card/60 text-muted-foreground transition-colors group-hover:bg-brand group-hover:text-brand-foreground">
-                    <ExternalLink className="size-4" />
-                  </span>
-                ) : null}
-              </div>
-            </CardContent>
-          </Card>
+            ) : null}
+          </div>
+          {project.href ? (
+            <a
+              href={project.href}
+              target="_blank"
+              rel="noreferrer"
+              aria-label={`Open ${project.name}`}
+              className="grid size-8 shrink-0 place-items-center rounded-xl border border-border/60 bg-card/60 text-muted-foreground transition-colors hover:bg-card hover:text-foreground"
+            >
+              <ExternalLink className="size-4" />
+            </a>
+          ) : null}
+        </div>
+        <p className="mt-3 line-clamp-3 flex-1 text-sm leading-relaxed text-muted-foreground">
+          {project.description}
+        </p>
+        <div className="mt-5 flex flex-wrap gap-2">
+          {project.tags.map((t) => (
+            <ProjectTag key={t} label={t} accent={project.accent} />
+          ))}
+        </div>
+      </div>
+    </article>
+  )
+}
+
+export function Projects() {
+  const [featured, ...rest] = projects
+
+  return (
+    <section id="projects" className="mx-auto max-w-6xl px-5 py-16 sm:py-20">
+      <SectionHeader
+        eyebrow="03 / Projects"
+        title="Selected work across enterprise, SaaS, and civic tech."
+        description="A few platforms I've built or shaped — from identity systems serving 40,000+ users to crowdfunding and civic apps."
+      />
+
+      <div className="mt-10">
+        <ProjectCard project={featured} featured />
+      </div>
+
+      <div className="mt-6 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
+        {rest.map((project) => (
+          <ProjectCard key={project.name} project={project} />
         ))}
       </div>
     </section>

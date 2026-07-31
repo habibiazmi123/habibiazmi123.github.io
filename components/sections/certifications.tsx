@@ -7,7 +7,7 @@ export function Certifications() {
   return (
     <section
       id="certifications"
-      className="mx-auto max-w-5xl px-5 py-24 sm:py-28"
+      className="mx-auto max-w-5xl px-5 py-16 sm:py-20"
     >
       <SectionHeader
         eyebrow="04 / Certifications"

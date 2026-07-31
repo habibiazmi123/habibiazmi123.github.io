@@ -23,30 +23,24 @@ export function Technologies() {
   return (
     <section
       id="technologies"
-      className="mx-auto max-w-6xl px-5 pt-16 pb-24 sm:pb-28"
+      className="mx-auto max-w-6xl px-5 pb-16 sm:pb-20"
     >
       <div className="mx-auto max-w-2xl text-center" data-animate>
         <h2 className="text-2xl font-semibold tracking-tight sm:text-3xl">
-          Technological Foundation
+          Tech Stack
         </h2>
-        <p className="mt-4 text-sm leading-[1.8] text-muted-foreground sm:text-base">
-          The modern tools I use to bring products to life.
-        </p>
       </div>
 
-      <div
-        className="marquee-mask mt-16 flex flex-col gap-3 overflow-hidden"
-        data-animate
-      >
+      <div className="marquee-mask mt-6 flex flex-col gap-3 overflow-hidden">
         <div className="marquee-row">
-          <ul className="flex w-max animate-marquee-left gap-3 pr-3">
+          <ul className="animate-marquee-left flex w-max gap-3 pr-3">
             {r1.map((item, i) => (
               <Badge key={`${item}-${i}`} item={item} />
             ))}
           </ul>
         </div>
         <div className="marquee-row">
-          <ul className="flex w-max animate-marquee-right gap-3 pr-3">
+          <ul className="animate-marquee-right flex w-max gap-3 pr-3">
             {r2.map((item, i) => (
               <Badge key={`${item}-${i}`} item={item} />
             ))}

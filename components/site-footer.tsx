@@ -7,9 +7,7 @@ export function SiteFooter() {
         <p>
           © {new Date().getFullYear()} {profile.name}. All rights reserved.
         </p>
-        <p className="font-mono">
-          Built with Next.js, shadcn/ui &amp; GSAP.
-        </p>
+        <p className="font-mono">Built with ❤️</p>
       </div>
     </footer>
   )

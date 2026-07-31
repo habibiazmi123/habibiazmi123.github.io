@@ -8,7 +8,7 @@ export function Experience() {
   return (
     <section
       id="experience"
-      className="mx-auto max-w-5xl px-5 py-24 sm:py-28"
+      className="mx-auto max-w-5xl px-5 py-16 sm:py-20"
       aria-label="Experience timeline"
     >
       <SectionHeader

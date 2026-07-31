@@ -1,9 +1,11 @@
+"use client"
+
 import Image from "next/image"
 import { ArrowRight, Download } from "lucide-react"
 import { profile } from "@/lib/portfolio"
 import CountUp from "@/components/reactbits/count-up"
-import GlareHover from "@/components/reactbits/glare-hover"
-import SplitText from "@/components/reactbits/split-text"
+import SpotlightCard from "@/components/SpotlightCard"
+import Aurora from "@/components/Aurora"
 
 function statNumber(value: string): number {
   return parseInt(value.replace(/[^0-9]/g, ""), 10) || 0
@@ -16,13 +18,16 @@ function statSuffix(value: string): string {
 export function Hero() {
   return (
     <section id="top" className="relative overflow-hidden px-5 pt-16">
-      {/* Subtle ambient glow — depth without noise */}
+      {/* Aurora background — animated gradient depth */}
       <div className="pointer-events-none absolute inset-0 -z-10">
-        <div className="absolute top-1/3 right-[6%] h-104 w-104 -translate-y-1/2 rounded-full bg-emerald-500/12 blur-[130px]" />
-        <div className="absolute top-1/2 -left-32 h-80 w-80 -translate-y-1/2 rounded-full bg-purple-500/10 blur-[120px]" />
+        <Aurora
+          colorStops={["#10b981", "#3b82f6", "#a855f7"]}
+          amplitude={0.8}
+          blend={0.6}
+        />
       </div>
 
-      <div className="mx-auto grid max-w-6xl grid-cols-1 items-center gap-12 py-28 lg:grid-cols-12 lg:gap-16 lg:py-32">
+      <div className="mx-auto grid max-w-6xl grid-cols-1 items-center gap-12 py-20 lg:grid-cols-12 lg:gap-16 lg:py-20">
         {/* Text — 60%, primary focal point */}
         <div className="lg:col-span-7">
           {profile.available ? (
@@ -43,13 +48,9 @@ export function Hero() {
             className="mt-8 text-5xl leading-[1.05] font-semibold tracking-tight sm:text-6xl lg:text-7xl"
           >
             <span className="text-foreground">Hi, I&apos;m</span>{" "}
-            <SplitText
-              text={`${profile.shortName}.`}
-              className="hero-name-gradient inline-block bg-linear-to-r from-emerald-400 via-blue-500 to-purple-500 bg-clip-text text-transparent"
-              delay={30}
-              duration={0.6}
-              tag="span"
-            />
+            <span className="inline-block bg-linear-to-r from-emerald-400 via-blue-500 to-purple-500 bg-clip-text text-transparent">
+              {profile.shortName}.
+            </span>
           </h1>
 
           <p
@@ -69,9 +70,10 @@ export function Hero() {
             >
               Contact Me <ArrowRight className="size-4" />
             </a>
-            {/* ponytail: drop cv.pdf into /public to activate */}
             <a
-              href="/cv.pdf"
+              href="/Muhamad_Habibi_Azmi_Fullstack_Engineer_CV.pdf"
+              target="_blank"
+              rel="noreferrer"
               className="inline-flex items-center gap-2 text-sm font-medium text-muted-foreground transition-colors duration-200 hover:text-foreground"
             >
               Download CV <Download className="size-4" />
@@ -89,11 +91,7 @@ export function Hero() {
                 }`}
               >
                 <span className="font-mono text-2xl font-semibold tracking-tight text-brand sm:text-3xl">
-                  <CountUp
-                    from={0}
-                    to={statNumber(s.value)}
-                    duration={2}
-                  />
+                  <CountUp from={0} to={statNumber(s.value)} duration={2} />
                   {statSuffix(s.value)}
                 </span>
                 <p className="mt-1 text-xs text-muted-foreground">{s.label}</p>
@@ -107,16 +105,9 @@ export function Hero() {
           {/* gradient glow border — green bottom-left, purple top-right */}
           <div className="pointer-events-none absolute -inset-px -z-10 rounded-[2.25rem] bg-linear-to-br from-emerald-400 via-transparent to-purple-500 opacity-60 blur-[2px]" />
           <div className="pointer-events-none absolute -inset-8 -z-20 rounded-[3rem] bg-linear-to-br from-emerald-500/20 via-transparent to-purple-500/20 blur-3xl" />
-          <GlareHover
-            background="transparent"
-            borderRadius="2rem"
-            borderColor="var(--border)"
-            glareColor="#34d399"
-            glareOpacity={0.35}
-            glareAngle={-30}
-            glareSize={300}
-            transitionDuration={800}
-            className="relative aspect-4/5 w-full overflow-hidden bg-linear-to-br from-card via-muted/40 to-card shadow-[0_24px_60px_-24px_rgba(0,0,0,0.6)]"
+          <SpotlightCard
+            spotlightColor="rgba(168, 85, 247, 0.45)"
+            className="relative aspect-4/5 w-full overflow-hidden rounded-[2rem] border border-border/60 bg-linear-to-br from-card via-muted/40 to-card p-0 shadow-[0_24px_60px_-24px_rgba(0,0,0,0.6)]"
           >
             <Image
               src="/me.png"
@@ -126,10 +117,7 @@ export function Hero() {
               className="object-cover object-top"
               priority
             />
-            <div className="absolute top-4 right-4 z-10 grid size-9 place-items-center rounded-xl border border-border/60 bg-card/80 text-emerald-400 backdrop-blur">
-              <ArrowRight className="size-4" />
-            </div>
-          </GlareHover>
+          </SpotlightCard>
         </div>
       </div>
     </section>

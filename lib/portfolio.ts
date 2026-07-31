@@ -6,11 +6,12 @@ export const profile = {
     "A Full Stack Software Engineer based in Bandung, Indonesia. I craft scalable backends, modern web applications, and AI-enabled platforms used by 40,000+ people.",
   bio: "Full Stack Software Engineer with 7+ years delivering enterprise software, SaaS platforms, and AI-enabled solutions across telecom, healthcare, HR tech, and digital products.",
   location: "Bandung, West Java, Indonesia",
-  email: "hello@habibiazmi.com",
+  email: "habibiazmi.m@gmail.com",
   available: true,
   socials: [
     { label: "LinkedIn", href: "https://www.linkedin.com/in/azmibanget/" },
     { label: "GitHub", href: "https://github.com/habibiazmi123" },
+    { label: "Instagram", href: "https://instagram.com/m.habibiazmi" },
   ],
   stats: [
     { value: "7+", label: "Years experience" },
@@ -210,6 +211,26 @@ export const projects: Project[] = [
     tags: ["Golang", "OAuth 2.0", "LDAP", "SSO"],
     period: "2022 — Present",
     accent: "#1e3a8a",
+    image: "/tgsso.png",
+  },
+  {
+    name: "Edelweiss Hospital",
+    description:
+      "Online patient registration and appointment management platform streamlining patient onboarding and experience.",
+    tags: ["Healthcare", "Appointments"],
+    period: "2018 — 2021",
+    accent: "#4c1d95",
+    image: "/edelweiss.png",
+  },
+  {
+    name: "Pegi Rating",
+    description:
+      "Public website and game rating search portal for PEGI, the Pan European Game Information system used across 40+ countries to classify age ratings and content descriptors.",
+    tags: ["Gaming", "Rating", "Public Portal"],
+    period: "2024",
+    accent: "#1d4ed8",
+    href: "https://pegi.info",
+    image: "/pegirating.png",
   },
   {
     name: "ELAO",
@@ -230,34 +251,6 @@ export const projects: Project[] = [
     image: "/leapsy.png",
   },
   {
-    name: "HRIS SaaS",
-    description:
-      "SaaS Human Resource Information System with RBAC, payroll automation, attendance, and employee administration workflows.",
-    tags: ["HRIS", "RBAC", "Payroll", "Vue.js"],
-    period: "2018 — 2021",
-    accent: "#1e3a8a",
-    image: "/digispace.png",
-  },
-  {
-    name: "Food Sharing",
-    description:
-      "Crowdfunding platform supporting food-sharing initiatives and empowering small and medium-sized businesses (UMKM). Connects donors with community projects to provide meals for those in need while promoting local entrepreneurs.",
-    tags: ["Crowdfunding", "UMKM", "Fullstack"],
-    period: "2020",
-    accent: "#0e7490",
-    href: "https://smartfood.badami.id",
-    image: "/badami.webp",
-  },
-  {
-    name: "Edelweiss Hospital",
-    description:
-      "Online patient registration and appointment management platform streamlining patient onboarding and experience.",
-    tags: ["Healthcare", "Appointments"],
-    period: "2018 — 2021",
-    accent: "#4c1d95",
-    image: "/edelweiss.png",
-  },
-  {
     name: "BAZNAS Crowdfunding",
     description:
       "Online crowdfunding platform from scratch in Laravel supporting BAZNAS programs across West Java, with Midtrans (GoPay/QRIS) and bank mutation payments.",
@@ -268,13 +261,13 @@ export const projects: Project[] = [
     image: "/baznas.png",
   },
   {
-    name: "Bandung Smartcity",
+    name: "HRIS SaaS",
     description:
-      "Redesigned the Forum Bandung Smartcity UI with Nuxt 2, plus API integration and bug fixing on a CodeIgniter backend.",
-    href: "https://smartcity.bandung.go.id",
-    tags: ["Nuxt", "CodeIgniter", "Civic"],
-    period: "2020",
+      "SaaS Human Resource Information System with RBAC, payroll automation, attendance, and employee administration workflows.",
+    tags: ["HRIS", "RBAC", "Payroll", "Vue.js"],
+    period: "2018 — 2021",
     accent: "#1e3a8a",
+    image: "/digispace.png",
   },
 ]
 

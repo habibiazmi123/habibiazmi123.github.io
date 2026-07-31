@@ -5,29 +5,29 @@ export function Contact() {
   return (
     <section
       id="contact"
-      className="relative mx-auto max-w-5xl px-5 py-24 sm:py-28"
+      className="relative mx-auto max-w-5xl px-5 py-16 sm:py-20"
     >
       <div className="pointer-events-none absolute inset-0 -z-10">
-        <div className="absolute left-1/2 top-1/2 h-72 w-[40rem] -translate-x-1/2 -translate-y-1/2 rounded-full bg-brand/15 blur-[100px]" />
+        <div className="bg-brand/15 absolute top-1/2 left-1/2 h-72 w-160 -translate-x-1/2 -translate-y-1/2 rounded-full blur-[100px]" />
       </div>
 
       <div className="text-center" data-animate>
-        <p className="font-mono text-xs uppercase tracking-[0.2em] text-brand">
+        <p className="text-brand font-mono text-xs tracking-[0.2em] uppercase">
           05 / Contact
         </p>
         <h2 className="mt-4 text-3xl font-semibold tracking-tight sm:text-5xl">
           Let&apos;s build something.
         </h2>
         <p className="mx-auto mt-5 max-w-xl text-base text-muted-foreground">
-          I&apos;m open to roles, collaborations, and interesting problems.
-          The fastest way to reach me is email.
+          I&apos;m open to roles, collaborations, and interesting problems. The
+          fastest way to reach me is email.
         </p>
       </div>
 
       <div className="mt-10 flex flex-col items-center gap-4" data-animate>
         <a
           href={`mailto:${profile.email}`}
-          className="inline-flex items-center gap-2 rounded-md bg-brand px-6 py-3 text-sm font-medium text-brand-foreground transition-opacity hover:opacity-90"
+          className="bg-brand text-brand-foreground inline-flex items-center gap-2 rounded-md px-6 py-3 text-sm font-medium transition-opacity hover:opacity-90"
         >
           <Mail className="size-4" /> {profile.email}
         </a>

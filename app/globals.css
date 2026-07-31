@@ -45,6 +45,8 @@
     --radius-2xl: calc(var(--radius) * 1.8);
     --radius-3xl: calc(var(--radius) * 2.2);
     --radius-4xl: calc(var(--radius) * 2.6);
+    --color-brand: var(--brand);
+    --color-brand-foreground: var(--brand-foreground);
 }
 
 :root {
@@ -80,6 +82,8 @@
     --sidebar-accent-foreground: oklch(0.205 0 0);
     --sidebar-border: oklch(0.922 0 0);
     --sidebar-ring: oklch(0.708 0 0);
+    --brand: oklch(0.55 0.18 150);
+    --brand-foreground: oklch(0.99 0 0);
 }
 
 .dark {
@@ -114,6 +118,8 @@
     --sidebar-accent-foreground: oklch(0.985 0 0);
     --sidebar-border: oklch(1 0 0 / 10%);
     --sidebar-ring: oklch(0.556 0 0);
+    --brand: oklch(0.65 0.2 150);
+    --brand-foreground: oklch(0.15 0 0);
 }
 
 @layer base {
@@ -128,7 +134,33 @@
     }
 }
 
-/* SplitText splits gradient text into per-character divs; each char must carry the gradient. */
-.hero-name-gradient .split-char {
-  @apply bg-linear-to-r from-emerald-400 via-blue-500 to-purple-500 bg-clip-text text-transparent;
+/* Marquee animations used in the Technologies section */
+@keyframes marquee-left {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
 }
+@keyframes marquee-right {
+  0% { transform: translateX(-50%); }
+  100% { transform: translateX(0); }
+}
+.animate-marquee-left {
+  animation: marquee-left 30s linear infinite;
+}
+.animate-marquee-right {
+  animation: marquee-right 30s linear infinite;
+}
+.marquee-row {
+  display: flex;
+  width: max-content;
+}
+.marquee-mask {
+  -webkit-mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+  mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+}
+@media (prefers-reduced-motion: reduce) {
+  .animate-marquee-left,
+  .animate-marquee-right {
+    animation: none;
+  }
+}
+

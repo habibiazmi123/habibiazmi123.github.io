@@ -34,7 +34,13 @@ export function Scrollspy({
   // Sets active nav, hash, prevIdTracker, and calls onUpdate
   const setActiveSection = useCallback(
     (sectionId: string | null, force = false) => {
-      if (!sectionId) return
+      if (!sectionId) {
+        anchorElementsRef.current?.forEach((item) => {
+          item.removeAttribute("data-active")
+        })
+        prevIdTracker.current = null
+        return
+      }
       anchorElementsRef.current?.forEach((item) => {
         const id = item.getAttribute(`data-${dataAttribute}-anchor`)
         if (id === sectionId) {
@@ -44,7 +50,7 @@ export function Scrollspy({
         }
       })
       if (onUpdate) onUpdate(sectionId)
-      if (history && (force || prevIdTracker.current !== sectionId)) {
+      if (history && force && prevIdTracker.current !== sectionId) {
         window.history.replaceState({}, "", `#${sectionId}`)
       }
       prevIdTracker.current = sectionId
@@ -76,8 +82,13 @@ export function Scrollspy({
         ? window.scrollY || document.documentElement.scrollTop
         : scrollElement.scrollTop
 
-    // Find the anchor whose section is closest to but not past the top
-    let activeIdx = 0
+    const clientHeight = (scrollElement as HTMLElement).clientHeight
+    const viewportCenter = scrollTop + clientHeight / 2
+    const threshold = scrollTop + offset
+
+    // Find the section whose center is closest to the viewport center,
+    // but only among sections that have already entered the viewport.
+    let activeIdx = -1
     let minDelta = Infinity
 
     anchorElementsRef.current.forEach((anchor, idx) => {
@@ -85,29 +96,22 @@ export function Scrollspy({
       const sectionElement = document.getElementById(sectionId!)
       if (!sectionElement) return
 
-      let customOffset = offset
-      const dataOffset = anchor.getAttribute(`data-${dataAttribute}-offset`)
-      if (dataOffset) customOffset = parseInt(dataOffset, 10)
+      if (sectionElement.offsetTop > threshold) return
 
-      const delta = Math.abs(
-        sectionElement.offsetTop - customOffset - scrollTop
-      )
+      const sectionCenter =
+        sectionElement.offsetTop + sectionElement.offsetHeight / 2
+      const delta = Math.abs(sectionCenter - viewportCenter)
 
-      if (
-        sectionElement.offsetTop - customOffset <= scrollTop &&
-        delta < minDelta
-      ) {
+      if (delta < minDelta) {
         minDelta = delta
         activeIdx = idx
       }
     })
 
-    // If at bottom, force last anchor
-    const scrollHeight = (scrollElement as HTMLElement).scrollHeight
-    const clientHeight = (scrollElement as HTMLElement).clientHeight
-
-    if (scrollTop + clientHeight >= scrollHeight - 2) {
-      activeIdx = anchorElementsRef.current.length - 1
+    // If no section has been reached yet (e.g. hero area), clear active state
+    if (activeIdx === -1) {
+      setActiveSection(null)
+      return
     }
 
     // Set only one anchor active and sync the URL hash

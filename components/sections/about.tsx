@@ -4,7 +4,7 @@ import { profile } from "@/lib/portfolio"
 
 export function About() {
   return (
-    <section id="about" className="mx-auto max-w-5xl px-5 py-24 sm:py-28">
+    <section id="about" className="mx-auto max-w-5xl px-5 py-16 sm:py-20">
       <SectionHeader
         eyebrow="01 / About"
         title="Engineering software that holds up at scale."

@@ -7,8 +7,10 @@ import { navItems, profile } from "@/lib/portfolio"
 
 export function SiteNav() {
   const [scrolled, setScrolled] = React.useState(false)
+  const documentRef = React.useRef<Document | null>(null)
 
   React.useEffect(() => {
+    documentRef.current = document
     const onScroll = () => setScrolled(window.scrollY > 16)
     onScroll()
     window.addEventListener("scroll", onScroll, { passive: true })
@@ -33,7 +35,7 @@ export function SiteNav() {
           <span className="text-brand">.</span>
         </a>
 
-        <Scrollspy className="hidden items-center gap-1 md:flex" offset={96}>
+        <Scrollspy className="hidden items-center gap-1 md:flex" offset={80} targetRef={documentRef} history={false}>
           {navItems.map((item) => (
             <a
               key={item.id}
