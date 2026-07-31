@@ -2,6 +2,7 @@ import Image from "next/image"
 import { ArrowRight, Download } from "lucide-react"
 import { profile } from "@/lib/portfolio"
 import CountUp from "@/components/reactbits/count-up"
+import GlareHover from "@/components/reactbits/glare-hover"
 import SplitText from "@/components/reactbits/split-text"
 
 function statNumber(value: string): number {
@@ -106,8 +107,17 @@ export function Hero() {
           {/* gradient glow border — green bottom-left, purple top-right */}
           <div className="pointer-events-none absolute -inset-px -z-10 rounded-[2.25rem] bg-linear-to-br from-emerald-400 via-transparent to-purple-500 opacity-60 blur-[2px]" />
           <div className="pointer-events-none absolute -inset-8 -z-20 rounded-[3rem] bg-linear-to-br from-emerald-500/20 via-transparent to-purple-500/20 blur-3xl" />
-          {/* ponytail: swap this placeholder for <Image src="/me.jpg" fill /> once the photo lands in /public */}
-          <div className="relative aspect-4/5 w-full overflow-hidden rounded-[2rem] border border-border/50 bg-linear-to-br from-card via-muted/40 to-card shadow-[0_24px_60px_-24px_rgba(0,0,0,0.6)]">
+          <GlareHover
+            background="transparent"
+            borderRadius="2rem"
+            borderColor="var(--border)"
+            glareColor="#34d399"
+            glareOpacity={0.35}
+            glareAngle={-30}
+            glareSize={300}
+            transitionDuration={800}
+            className="relative aspect-4/5 w-full overflow-hidden bg-linear-to-br from-card via-muted/40 to-card shadow-[0_24px_60px_-24px_rgba(0,0,0,0.6)]"
+          >
             <Image
               src="/me.png"
               alt={profile.name}
@@ -116,11 +126,10 @@ export function Hero() {
               className="object-cover object-top"
               priority
             />
-            {/* floating cursor icon, top-right of frame */}
-            <div className="absolute top-4 right-4 grid size-9 place-items-center rounded-xl border border-border/60 bg-card/80 text-emerald-400 backdrop-blur">
+            <div className="absolute top-4 right-4 z-10 grid size-9 place-items-center rounded-xl border border-border/60 bg-card/80 text-emerald-400 backdrop-blur">
               <ArrowRight className="size-4" />
             </div>
-          </div>
+          </GlareHover>
         </div>
       </div>
     </section>
