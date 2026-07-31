@@ -314,18 +314,15 @@ git commit -m "feat(hero): animate name with SplitText"
 **Interfaces:**
 - Consumes: `GlareHover` (default export) from `@/components/reactbits/glare-hover`
 - Existing portrait block: outer `<div className="relative lg:col-span-5" data-animate>` containing gradient glow borders + the `<div className="relative aspect-4/5 w-full overflow-hidden rounded-[2rem] ...">` with the Image inside
-- GlareHover accepts children, preserves all existing styling and Next.js Image. CSS-based glare shines across the box on hover.
+- GlareHover accepts children, preserves all existing styling and Next.js Image. CSS-free (uses inline styles only — no `.css` file needed).
 
-- [ ] **Step 1: Add GlareHover import + CSS import**
+- [ ] **Step 1: Add GlareHover import**
 
-Add these 2 lines in hero.tsx (alphabetical with other component imports). **Note: GlareHover is a default export, and it has an associated CSS file required for the effect:**
+Add this single line in hero.tsx (alphabetical with other component imports). **Note: GlareHover is a default export, and it ships with inline styles only — NO CSS file to import (the upstream CSS variant was replaced with self-contained TS-TW):**
 
 ```tsx
 import GlareHover from "@/components/reactbits/glare-hover"
-import "@/components/reactbits/glare-hover.css"
 ```
-
-(Place the CSS import in the import group as well — Next.js handles CSS imports in client components.)
 
 - [ ] **Step 2: Wrap the portrait's inner content with GlareHover**
 
@@ -351,17 +348,15 @@ Replace it with:
   <div className="pointer-events-none absolute -inset-px -z-10 rounded-[2.25rem] bg-linear-to-br from-emerald-400 via-transparent to-purple-500 opacity-60 blur-[2px]" />
   <div className="pointer-events-none absolute -inset-8 -z-20 rounded-[3rem] bg-linear-to-br from-emerald-500/20 via-transparent to-purple-500/20 blur-3xl" />
   <GlareHover
-    width="100%"
-    height="100%"
     background="transparent"
     borderRadius="2rem"
-    borderColor="transparent"
+    borderColor="var(--border)"
     glareColor="#34d399"
     glareOpacity={0.35}
     glareAngle={-30}
     glareSize={300}
     transitionDuration={800}
-    className="relative aspect-4/5 w-full overflow-hidden border border-border/50 bg-linear-to-br from-card via-muted/40 to-card shadow-[0_24px_60px_-24px_rgba(0,0,0,0.6)]"
+    className="relative aspect-4/5 w-full overflow-hidden bg-linear-to-br from-card via-muted/40 to-card shadow-[0_24px_60px_-24px_rgba(0,0,0,0.6)]"
   >
     <Image
       src="/me.png"
@@ -378,15 +373,19 @@ Replace it with:
 </div>
 ```
 
-**Notes on GlareHover config:**
-- `background="transparent"` + `borderColor="transparent"` — preserve our existing gradient/border styling (GlareHover's default `background: #000` and `border: 1px solid #333` would clash with our glass card look). The Tailwind classes on `className` supply the real visual.
-- `borderRadius="2rem"` — match the existing `rounded-[2rem]` on the portrait frame.
-- `glareColor="#34d399"` — emerald-400 from our palette, ties the shine to the existing gradient.
-- `glareOpacity={0.35}` — subtle (default 0.5 is too strong against the dark hero).
-- `glareAngle={-30}` — diagonal, matches the emerald→purple gradient direction.
-- `glareSize={300}` — larger than default 250 for a more sweeping effect.
-- `transitionDuration={800}` — slightly slower than default 650ms for a more cinematic feel.
-- `z-10` on the absolute-positioned arrow div — GlareHover's overlay div sits at `z-[2]`, our arrow needs to stay on top so it's not occluded by the glare shine.
+**Notes on GlareHover config (verified against installed `components/reactbits/glare-hover.tsx`):**
+
+- **No `width`/`height` props** — the component renders a `<div>` with our className providing dimensions. `aspect-4/5 w-full` in className gives correct sizing.
+- **`background="transparent"`** — GlareHover's default is `'#000'` (black). Setting to transparent lets the page background show through. The Tailwind `bg-linear-to-br from-card via-muted/40 to-card` class sets `background-image` separately, so the gradient still applies (transparent affects only `background-color`). Minor visual change: the card's dark gradient overlay is preserved via the Tailwind class.
+- **`borderRadius="2rem"`** — match the existing `rounded-[2rem]` on the portrait frame.
+- **`borderColor="var(--border)"`** — GlareHover hardcodes a `border` class on the element (1px width). Default `'#333'` is wrong; use `var(--border)` to tie to the design system token (resolves to `oklch(1 0 0 / 10%)` in dark mode).
+- **`glareColor="#34d399"`** — emerald-400 from our palette, ties the shine to the existing emerald→purple gradient.
+- **`glareOpacity={0.35}`** — subtle (default 0.5 is too strong against the dark hero).
+- **`glareAngle={-30}`** — diagonal, matches the emerald→purple gradient direction.
+- **`glareSize={300}`** — larger than default 250 for a more sweeping effect.
+- **`transitionDuration={800}`** — slightly slower than default 650ms for a more cinematic feel.
+- **Removed `border border-border/50` from className** — GlareHover hardcodes `border` (1px), and inline `borderColor` prop wins over Tailwind class, so the Tailwind border-color class is redundant and was dropped.
+- **`z-10` on the absolute-positioned arrow div** — GlareHover's glare overlay is a sibling, no z-index. Our arrow at `z-10` stays on top, never occluded by the shine.
 
 - [ ] **Step 3: Run typecheck**
 
