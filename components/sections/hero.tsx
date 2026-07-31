@@ -4,7 +4,7 @@ import Image from "next/image"
 import { ArrowRight, Download } from "lucide-react"
 import { profile } from "@/lib/portfolio"
 import CountUp from "@/components/reactbits/count-up"
-import SpotlightCard from "@/components/SpotlightCard"
+
 import Aurora from "@/components/Aurora"
 
 function statNumber(value: string): number {
@@ -100,24 +100,20 @@ export function Hero() {
           </div>
         </div>
 
-        {/* Portrait — 40%, deliberately secondary */}
+        {/* Portrait — 40%, floating with glow */}
         <div className="relative lg:col-span-5" data-animate>
-          {/* gradient glow border — green bottom-left, purple top-right */}
-          <div className="pointer-events-none absolute -inset-px -z-10 rounded-[2.25rem] bg-linear-to-br from-emerald-400 via-transparent to-purple-500 opacity-60 blur-[2px]" />
-          <div className="pointer-events-none absolute -inset-8 -z-20 rounded-[3rem] bg-linear-to-br from-emerald-500/20 via-transparent to-purple-500/20 blur-3xl" />
-          <SpotlightCard
-            spotlightColor="rgba(168, 85, 247, 0.45)"
-            className="relative aspect-4/5 w-full overflow-hidden rounded-[2rem] border border-border/60 bg-linear-to-br from-card via-muted/40 to-card p-0 shadow-[0_24px_60px_-24px_rgba(0,0,0,0.6)]"
-          >
-            <Image
-              src="/me.png"
-              alt={profile.name}
-              fill
-              sizes="(max-width: 1024px) 100vw, 40vw"
-              className="object-cover object-top"
-              priority
-            />
-          </SpotlightCard>
+          {/* soft glow behind portrait */}
+          <div className="pointer-events-none absolute inset-0 -z-10 scale-90 blur-3xl opacity-40 bg-linear-to-br from-emerald-400 via-blue-500 to-purple-500 rounded-full" />
+          <div className="pointer-events-none absolute -inset-6 -z-20 blur-[80px] opacity-25 bg-linear-to-tr from-emerald-500 to-purple-500 rounded-full" />
+          <Image
+            src="/me.png"
+            alt={profile.name}
+            width={800}
+            height={1000}
+            sizes="(max-width: 1024px) 100vw, 40vw"
+            className="relative w-full h-auto drop-shadow-[0_8px_32px_rgba(16,185,129,0.25)]"
+            priority
+          />
         </div>
       </div>
     </section>
