@@ -45,7 +45,7 @@ export function Hero() {
             <span className="text-foreground">Hi, I&apos;m</span>{" "}
             <SplitText
               text={`${profile.shortName}.`}
-              className="inline-block bg-linear-to-r from-emerald-400 via-blue-500 to-purple-500 bg-clip-text text-transparent"
+              className="hero-name-gradient inline-block bg-linear-to-r from-emerald-400 via-blue-500 to-purple-500 bg-clip-text text-transparent"
               delay={30}
               duration={0.6}
               tag="span"

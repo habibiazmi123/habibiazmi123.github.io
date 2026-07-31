@@ -127,3 +127,8 @@
     @apply font-sans;
     }
 }
+
+/* SplitText splits gradient text into per-character divs; each char must carry the gradient. */
+.hero-name-gradient .split-char {
+  @apply bg-linear-to-r from-emerald-400 via-blue-500 to-purple-500 bg-clip-text text-transparent;
+}
