@@ -1,8 +1,55 @@
-import { MapPin, FolderOpen } from "lucide-react"
+"use client"
+
+import { useState } from "react"
+import { MapPin, FolderOpen, ChevronDown } from "lucide-react"
 import { SectionHeader } from "@/components/section-header"
 import { Badge } from "@/components/reui/badge"
 import { experiences } from "@/lib/portfolio"
 import { cn } from "@/lib/utils"
+
+function Highlights({ items }: { items: string[] }) {
+  const [expanded, setExpanded] = useState(false)
+  const visible = expanded ? items : items.slice(0, 3)
+
+  if (items.length <= 3) {
+    return (
+      <ul className="mt-4 space-y-2">
+        {items.map((h) => (
+          <li
+            key={h}
+            className="relative pl-4 text-sm leading-relaxed text-muted-foreground before:absolute before:left-0 before:top-2 before:size-1.5 before:rounded-full before:bg-brand/60"
+          >
+            {h}
+          </li>
+        ))}
+      </ul>
+    )
+  }
+
+  return (
+    <div>
+      <ul className="mt-4 space-y-2">
+        {visible.map((h) => (
+          <li
+            key={h}
+            className="relative pl-4 text-sm leading-relaxed text-muted-foreground before:absolute before:left-0 before:top-2 before:size-1.5 before:rounded-full before:bg-brand/60"
+          >
+            {h}
+          </li>
+        ))}
+      </ul>
+      <button
+        onClick={() => setExpanded(!expanded)}
+        className="mt-2 flex items-center gap-1 text-xs font-medium text-brand hover:text-brand/80 transition-colors"
+      >
+        {expanded ? "Show less" : `Show more (${items.length - 3})`}
+        <ChevronDown
+          className={cn("size-3 transition-transform", expanded && "rotate-180")}
+        />
+      </button>
+    </div>
+  )
+}
 
 export function Experience() {
   return (
@@ -73,16 +120,7 @@ export function Experience() {
                     <p className="mt-4 text-sm text-muted-foreground">
                       {exp.summary}
                     </p>
-                    <ul className="mt-4 space-y-2">
-                      {exp.highlights.map((h) => (
-                        <li
-                          key={h}
-                          className="relative pl-4 text-sm leading-relaxed text-muted-foreground before:absolute before:left-0 before:top-2 before:size-1.5 before:rounded-full before:bg-brand/60"
-                        >
-                          {h}
-                        </li>
-                      ))}
-                    </ul>
+                    <Highlights items={exp.highlights} />
                     {exp.projects?.length ? (
                       <div className="mt-5">
                         <p className="flex items-center gap-1.5 text-[0.65rem] font-semibold uppercase tracking-[0.2em] text-brand">

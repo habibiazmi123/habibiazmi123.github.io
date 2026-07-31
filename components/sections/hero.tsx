@@ -101,7 +101,7 @@ export function Hero() {
         </div>
 
         {/* Portrait — 40%, floating with glow */}
-        <div className="relative lg:col-span-5" data-animate>
+        <div className="relative hidden lg:col-span-5 lg:block" data-animate>
           {/* soft glow behind portrait */}
           <div className="pointer-events-none absolute inset-0 -z-10 scale-90 rounded-full bg-linear-to-br from-emerald-400 via-blue-500 to-purple-500 opacity-40 blur-3xl" />
           <div className="pointer-events-none absolute -inset-6 -z-20 rounded-full bg-linear-to-tr from-emerald-500 to-purple-500 opacity-25 blur-[80px]" />
