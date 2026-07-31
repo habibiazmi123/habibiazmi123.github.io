@@ -2,6 +2,7 @@ import Image from "next/image"
 import { ArrowRight, Download } from "lucide-react"
 import { profile } from "@/lib/portfolio"
 import CountUp from "@/components/reactbits/count-up"
+import SplitText from "@/components/reactbits/split-text"
 
 function statNumber(value: string): number {
   return parseInt(value.replace(/[^0-9]/g, ""), 10) || 0
@@ -41,9 +42,13 @@ export function Hero() {
             className="mt-8 text-5xl leading-[1.05] font-semibold tracking-tight sm:text-6xl lg:text-7xl"
           >
             <span className="text-foreground">Hi, I&apos;m</span>{" "}
-            <span className="bg-linear-to-r from-emerald-400 via-blue-500 to-purple-500 bg-clip-text text-transparent">
-              {profile.shortName}.
-            </span>
+            <SplitText
+              text={`${profile.shortName}.`}
+              className="inline-block bg-linear-to-r from-emerald-400 via-blue-500 to-purple-500 bg-clip-text text-transparent"
+              delay={30}
+              duration={0.6}
+              tag="span"
+            />
           </h1>
 
           <p
