@@ -34,14 +34,15 @@ export function Experience() {
             const isLeft = i % 2 === 0
             return (
               <div key={exp.id} className="relative">
-                {/* Dot marker on the line, vertically centered with the card */}
+                {/* Dot marker — desktop (center line) */}
                 <div
                   aria-hidden="true"
-                  className={cn(
-                    "absolute top-1/2 z-10 size-4 -translate-y-1/2 rounded-full border-4 border-background bg-brand",
-                    "left-1/2 -translate-x-1/2 hidden md:block",
-                    "right-0 translate-x-1/2 block md:hidden"
-                  )}
+                  className="absolute top-1/2 left-1/2 z-10 hidden size-4 -translate-x-1/2 -translate-y-1/2 rounded-full border-4 border-background bg-brand md:block"
+                />
+                {/* Dot marker — mobile (right line) */}
+                <div
+                  aria-hidden="true"
+                  className="absolute top-1/2 right-0 z-10 block size-4 -translate-y-1/2 translate-x-1/2 rounded-full border-4 border-background bg-brand md:hidden"
                 />
 
                 <div
