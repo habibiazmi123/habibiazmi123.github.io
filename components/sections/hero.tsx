@@ -27,7 +27,7 @@ export function Hero() {
         />
       </div>
 
-      <div className="mx-auto grid max-w-6xl grid-cols-1 items-center gap-12 py-5 lg:grid-cols-12 lg:gap-16 lg:py-5">
+      <div className="mx-auto grid max-w-6xl grid-cols-1 items-center gap-12 py-14 lg:grid-cols-12 lg:gap-16 lg:py-14">
         {/* Text — 60%, primary focal point */}
         <div className="lg:col-span-7">
           {profile.available ? (
@@ -103,15 +103,15 @@ export function Hero() {
         {/* Portrait — 40%, floating with glow */}
         <div className="relative lg:col-span-5" data-animate>
           {/* soft glow behind portrait */}
-          <div className="pointer-events-none absolute inset-0 -z-10 scale-90 blur-3xl opacity-40 bg-linear-to-br from-emerald-400 via-blue-500 to-purple-500 rounded-full" />
-          <div className="pointer-events-none absolute -inset-6 -z-20 blur-[80px] opacity-25 bg-linear-to-tr from-emerald-500 to-purple-500 rounded-full" />
+          <div className="pointer-events-none absolute inset-0 -z-10 scale-90 rounded-full bg-linear-to-br from-emerald-400 via-blue-500 to-purple-500 opacity-40 blur-3xl" />
+          <div className="pointer-events-none absolute -inset-6 -z-20 rounded-full bg-linear-to-tr from-emerald-500 to-purple-500 opacity-25 blur-[80px]" />
           <Image
             src="/me.png"
             alt={profile.name}
-            width={800}
-            height={1000}
-            sizes="(max-width: 1024px) 100vw, 40vw"
-            className="relative w-full h-auto drop-shadow-[0_8px_32px_rgba(16,185,129,0.25)]"
+            width={400}
+            height={500}
+            sizes="(max-width: 1024px) 50vw, 25vw"
+            className="absolute top-[-50] mx-auto h-auto w-3/4 drop-shadow-[0_8px_32px_rgba(16,185,129,0.25)]"
             priority
           />
         </div>
