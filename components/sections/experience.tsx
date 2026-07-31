@@ -33,7 +33,7 @@ export function Experience() {
           {experiences.map((exp, i) => {
             const isLeft = i % 2 === 0
             return (
-              <div key={exp.id} className="relative">
+              <div key={exp.id} className="relative" data-animate>
                 {/* Dot marker — desktop (center line) */}
                 <div
                   aria-hidden="true"
