@@ -1,12 +1,8 @@
-import { allTech, techColors } from "@/lib/portfolio"
+import { allTech } from "@/lib/portfolio"
 
 function Badge({ item }: { item: string }) {
   return (
-    <li className="inline-flex shrink-0 items-center gap-2 rounded-full border border-border/60 bg-card/60 px-4 py-2 text-sm text-foreground">
-      <span
-        className="size-2.5 rounded-full"
-        style={{ backgroundColor: techColors[item] ?? "#A1A1AA" }}
-      />
+    <li className="inline-flex shrink-0 items-center rounded-full border border-border/40 px-4 py-2 text-sm text-muted-foreground">
       {item}
     </li>
   )
