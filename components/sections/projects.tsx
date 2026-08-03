@@ -119,7 +119,7 @@ function ProjectCard({
               {project.name}
             </h3>
             {project.period ? (
-              <p className="mt-1 font-mono text-xs text-primary-foreground/80">
+              <p className="mt-1 font-mono text-xs text-primary-foreground/80 dark:text-white">
                 {project.period}
               </p>
             ) : null}
@@ -167,7 +167,7 @@ function ProjectCard({
               {project.name}
             </h3>
             {project.period ? (
-              <p className="mt-0.5 font-mono text-xs text-muted-foreground">
+              <p className="mt-0.5 font-mono text-xs text-muted-foreground dark:text-white">
                 {project.period}
               </p>
             ) : null}
@@ -185,7 +185,7 @@ function ProjectCard({
             </a>
           ) : null}
         </div>
-        <p className="mt-3 line-clamp-3 flex-1 text-sm leading-relaxed text-muted-foreground">
+        <p className="mt-3 line-clamp-3 flex-1 text-sm leading-relaxed text-muted-foreground dark:text-white">
           {project.description}
         </p>
         <div className="mt-5 flex flex-wrap gap-2">

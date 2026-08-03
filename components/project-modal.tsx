@@ -55,13 +55,13 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
                 {project.name}
               </DialogTitle>
               {project.period ? (
-                <DialogDescription className="font-mono text-xs text-muted-foreground">
+                <DialogDescription className="font-mono text-xs text-muted-foreground dark:text-white">
                   {project.period}
                 </DialogDescription>
               ) : null}
             </DialogHeader>
 
-            <p className="mt-4 text-sm leading-relaxed text-muted-foreground sm:text-base">
+            <p className="mt-4 text-sm leading-relaxed text-muted-foreground sm:text-base dark:text-white">
               {project.description}
             </p>
 
