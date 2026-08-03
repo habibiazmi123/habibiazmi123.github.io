@@ -192,6 +192,7 @@ export type Project = {
   period?: string
   accent: string
   image?: string
+  details?: string[]
 }
 
 export const projects: Project[] = [
@@ -203,6 +204,11 @@ export const projects: Project[] = [
     period: "2022 — Present",
     accent: "#0e7490",
     image: "/kypas.png",
+    details: [
+      "Co-built IAM platform automating access governance and approval workflows",
+      "Designed audit trail system for compliance reviews across the Telkom Group",
+      "Integrated with existing enterprise identity providers",
+    ],
   },
   {
     name: "TGSSO",
@@ -212,6 +218,11 @@ export const projects: Project[] = [
     period: "2022 — Present",
     accent: "#1e3a8a",
     image: "/tgsso.png",
+    details: [
+      "Architected enterprise SSO with OAuth 2.0 and LDAP securing access for 40,000+ users",
+      "Owned identity services for 30K employees and 10K partner accounts",
+      "Shipped RESTful APIs and documentation that accelerated integration across applications",
+    ],
   },
   {
     name: "Edelweiss Hospital",
@@ -221,6 +232,11 @@ export const projects: Project[] = [
     period: "2018 — 2021",
     accent: "#4c1d95",
     image: "/edelweiss.png",
+    details: [
+      "Delivered patient registration and appointment management platform",
+      "Streamlined patient onboarding workflows for hospital staff",
+      "Prototyped real-time video consultations using AWS Chime SDK",
+    ],
   },
   {
     name: "Pegi Rating",
@@ -231,6 +247,11 @@ export const projects: Project[] = [
     accent: "#1d4ed8",
     href: "https://pegi.info",
     image: "/pegirating.png",
+    details: [
+      "Built public-facing game rating search portal for the PEGI system",
+      "Delivered end-to-end for European clients across a distributed team",
+      "Implemented age rating classification and content descriptor search",
+    ],
   },
   {
     name: "ELAO",
@@ -240,6 +261,11 @@ export const projects: Project[] = [
     period: "2024",
     accent: "#4c1d95",
     image: "/dili.png",
+    details: [
+      "Shipped language assessment automation features for universities and enterprises",
+      "Built proficiency testing and candidate evaluation workflows",
+      "Delivered reporting dashboards for assessment analytics",
+    ],
   },
   {
     name: "Leapsy",
@@ -249,6 +275,11 @@ export const projects: Project[] = [
     period: "2024",
     accent: "#0e7490",
     image: "/leapsy.png",
+    details: [
+      "Built learning platform with personalized content and progress tracking",
+      "Integrated MangoPay payments and AI text-to-speech capabilities",
+      "Developed content management system for educators",
+    ],
   },
   {
     name: "BAZNAS Crowdfunding",
@@ -259,6 +290,11 @@ export const projects: Project[] = [
     period: "2019",
     accent: "#0e7490",
     image: "/baznas.png",
+    details: [
+      "Built crowdfunding platform from scratch in Laravel for BAZNAS programs",
+      "Integrated Midtrans payments (GoPay, QRIS) and bank mutation processing",
+      "Redesigned UI/UX to improve usability for donors and administrators",
+    ],
   },
   {
     name: "HRIS SaaS",
@@ -268,6 +304,11 @@ export const projects: Project[] = [
     period: "2018 — 2021",
     accent: "#1e3a8a",
     image: "/digispace.png",
+    details: [
+      "Led team of 3 engineers to ship SaaS HRIS with RBAC, payroll, and attendance",
+      "Built reusable Vue.js component library and Vuex state management",
+      "Launched React Native attendance app with GPS check-ins and real-time notifications",
+    ],
   },
 ]
 
