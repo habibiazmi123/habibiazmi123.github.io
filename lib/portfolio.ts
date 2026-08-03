@@ -7,6 +7,7 @@ export const profile = {
   bio: "Full Stack Software Engineer with 7+ years delivering enterprise software, SaaS platforms, and AI-enabled solutions across telecom, healthcare, HR tech, and digital products.",
   location: "Bandung, West Java, Indonesia",
   email: "habibiazmi.m@gmail.com",
+  whatsapp: "+6281395038967",
   available: true,
   socials: [
     { label: "LinkedIn", href: "https://www.linkedin.com/in/azmibanget/" },

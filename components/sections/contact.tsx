@@ -1,4 +1,4 @@
-import { ArrowUpRight, Mail, MapPin } from "lucide-react"
+import { ArrowUpRight, Mail, MapPin, MessageCircle } from "lucide-react"
 import { profile } from "@/lib/portfolio"
 
 export function Contact() {
@@ -17,17 +17,27 @@ export function Contact() {
           </h2>
           <p className="mx-auto mt-5 max-w-xl text-base text-primary-foreground/85">
             I&apos;m open to roles, collaborations, and interesting problems.
-            The fastest way to reach me is email.
+            The fastest way to reach me is whatsapp.
           </p>
         </div>
 
         <div className="mt-10 flex flex-col items-center gap-4" data-animate>
-          <a
-            href={`mailto:${profile.email}`}
-            className="inline-flex items-center gap-2 border-2 border-foreground bg-chartreuse px-6 py-3 text-sm font-bold text-foreground shadow-[4px_4px_0_var(--ink)] transition-transform hover:translate-x-1 hover:translate-y-1 hover:shadow-none"
-          >
-            <Mail className="size-4" /> {profile.email}
-          </a>
+          <div className="flex flex-wrap justify-center gap-3">
+            <a
+              href={`mailto:${profile.email}`}
+              className="inline-flex items-center gap-2 border-2 border-foreground bg-chartreuse px-6 py-3 text-sm font-bold text-foreground shadow-[4px_4px_0_var(--ink)] transition-transform hover:translate-x-1 hover:translate-y-1 hover:shadow-none"
+            >
+              <Mail className="size-4" /> {profile.email}
+            </a>
+            <a
+              href={`https://wa.me/${profile.whatsapp.replace(/\D/g, "")}`}
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex items-center gap-2 border-2 border-foreground bg-chartreuse px-6 py-3 text-sm font-bold text-foreground shadow-[4px_4px_0_var(--ink)] transition-transform hover:translate-x-1 hover:translate-y-1 hover:shadow-none"
+            >
+              <MessageCircle className="size-4" /> {profile.whatsapp}
+            </a>
+          </div>
           <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-sm text-primary-foreground/85">
             <span className="inline-flex items-center gap-1.5">
               <MapPin className="size-3.5" /> {profile.location}
