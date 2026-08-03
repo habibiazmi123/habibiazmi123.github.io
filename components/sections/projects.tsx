@@ -1,8 +1,12 @@
+"use client"
+
+import { useState } from "react"
 import Image from "next/image"
 import { ExternalLink, ArrowUpRight } from "lucide-react"
 import { SectionHeader } from "@/components/section-header"
 import { projects } from "@/lib/portfolio"
 import { cn } from "@/lib/utils"
+import { ProjectModal } from "@/components/project-modal"
 
 export function ProjectTag({ label, accent }: { label: string; accent: string }) {
   return (
@@ -82,15 +86,18 @@ function ProjectImage({
 function ProjectCard({
   project,
   featured = false,
+  onClick,
 }: {
   project: (typeof projects)[number]
   featured?: boolean
+  onClick?: () => void
 }) {
   if (featured) {
     return (
       <article
-        className="group relative overflow-hidden rounded-2xl border border-border/60 bg-card/40 transition-all duration-300 hover:-translate-y-1.5 hover:border-brand/40 hover:shadow-[0_24px_60px_-24px_rgba(0,0,0,0.6)]"
+        className="group relative cursor-pointer overflow-hidden rounded-2xl border border-border/60 bg-card/40 transition-all duration-300 hover:-translate-y-1.5 hover:border-brand/40 hover:shadow-[0_24px_60px_-24px_rgba(0,0,0,0.6)]"
         data-animate
+        onClick={onClick}
       >
         <div className="lg:grid lg:grid-cols-2">
           <ProjectImage
@@ -136,9 +143,10 @@ function ProjectCard({
 
   return (
     <article
-      className="group relative flex flex-col overflow-hidden rounded-2xl border border-border/60 border-l-[3px] bg-card/40 transition-all duration-300 hover:-translate-y-1.5 hover:border-brand/40 hover:shadow-[0_20px_50px_-20px_rgba(0,0,0,0.5)]"
+      className="group relative flex cursor-pointer flex-col overflow-hidden rounded-2xl border border-border/60 border-l-[3px] bg-card/40 transition-all duration-300 hover:-translate-y-1.5 hover:border-brand/40 hover:shadow-[0_20px_50px_-20px_rgba(0,0,0,0.5)]"
       style={{ borderLeftColor: project.accent }}
       data-animate
+      onClick={onClick}
     >
       <ProjectImage
         project={project}
@@ -163,6 +171,7 @@ function ProjectCard({
               target="_blank"
               rel="noreferrer"
               aria-label={`Open ${project.name}`}
+              onClick={(e) => e.stopPropagation()}
               className="grid size-8 shrink-0 place-items-center rounded-xl border border-border/60 bg-card/60 text-muted-foreground transition-colors hover:bg-card hover:text-foreground"
             >
               <ExternalLink className="size-4" />
@@ -183,6 +192,9 @@ function ProjectCard({
 }
 
 export function Projects() {
+  const [selectedProject, setSelectedProject] = useState<
+    (typeof projects)[number] | null
+  >(null)
   const [featured, ...rest] = projects
 
   return (
@@ -194,14 +206,27 @@ export function Projects() {
       />
 
       <div className="mt-10">
-        <ProjectCard project={featured} featured />
+        <ProjectCard
+          project={featured}
+          featured
+          onClick={() => setSelectedProject(featured)}
+        />
       </div>
 
       <div className="mt-6 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
         {rest.map((project) => (
-          <ProjectCard key={project.name} project={project} />
+          <ProjectCard
+            key={project.name}
+            project={project}
+            onClick={() => setSelectedProject(project)}
+          />
         ))}
       </div>
+
+      <ProjectModal
+        project={selectedProject}
+        onClose={() => setSelectedProject(null)}
+      />
     </section>
   )
 }
