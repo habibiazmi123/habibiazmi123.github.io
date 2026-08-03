@@ -130,6 +130,7 @@ function ProjectCard({
                 href={project.href}
                 target="_blank"
                 rel="noreferrer"
+                onClick={(e) => e.stopPropagation()}
                 className="mt-8 inline-flex w-fit items-center gap-2 rounded-md bg-brand px-5 py-2.5 text-sm font-medium text-brand-foreground transition-opacity hover:opacity-90"
               >
                 View project <ArrowUpRight className="size-4" />
