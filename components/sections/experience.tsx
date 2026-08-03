@@ -17,7 +17,7 @@ function Highlights({ items }: { items: string[] }) {
         {items.map((h) => (
           <li
             key={h}
-            className="relative pl-4 text-sm leading-relaxed text-muted-foreground before:absolute before:left-0 before:top-2 before:size-1.5 before:rounded-full before:bg-brand/60"
+            className="relative pl-4 text-sm leading-relaxed text-muted-foreground before:absolute before:top-2 before:left-0 before:size-2 before:bg-cobalt"
           >
             {h}
           </li>
@@ -32,7 +32,7 @@ function Highlights({ items }: { items: string[] }) {
         {visible.map((h) => (
           <li
             key={h}
-            className="relative pl-4 text-sm leading-relaxed text-muted-foreground before:absolute before:left-0 before:top-2 before:size-1.5 before:rounded-full before:bg-brand/60"
+            className="relative pl-4 text-sm leading-relaxed text-muted-foreground before:absolute before:top-2 before:left-0 before:size-2 before:bg-cobalt"
           >
             {h}
           </li>
@@ -40,11 +40,14 @@ function Highlights({ items }: { items: string[] }) {
       </ul>
       <button
         onClick={() => setExpanded(!expanded)}
-        className="mt-2 flex items-center gap-1 text-xs font-medium text-brand hover:text-brand/80 transition-colors"
+        className="mt-2 flex items-center gap-1 text-xs font-bold text-cobalt transition-colors hover:bg-chartreuse"
       >
         {expanded ? "Show less" : `Show more (${items.length - 3})`}
         <ChevronDown
-          className={cn("size-3 transition-transform", expanded && "rotate-180")}
+          className={cn(
+            "size-3 transition-transform",
+            expanded && "rotate-180"
+          )}
         />
       </button>
     </div>
@@ -68,12 +71,12 @@ export function Experience() {
         {/* Center vertical line — desktop only */}
         <div
           aria-hidden="true"
-          className="absolute top-0 bottom-0 left-1/2 hidden w-0.5 -translate-x-1/2 bg-border/60 md:block"
+          className="absolute top-0 bottom-0 left-1/2 hidden w-0.5 -translate-x-1/2 bg-foreground md:block"
         />
         {/* Right vertical line — mobile only */}
         <div
           aria-hidden="true"
-          className="absolute top-0 bottom-0 right-0 block w-0.5 bg-border/60 md:hidden"
+          className="absolute top-0 right-0 bottom-0 block w-0.5 bg-foreground md:hidden"
         />
 
         <div className="flex flex-col gap-y-10 md:gap-y-14">
@@ -84,26 +87,26 @@ export function Experience() {
                 {/* Dot marker — desktop (center line) */}
                 <div
                   aria-hidden="true"
-                  className="absolute top-1/2 left-1/2 z-10 hidden size-4 -translate-x-1/2 -translate-y-1/2 rounded-full border-4 border-background bg-brand md:block"
+                  className="absolute top-1/2 left-1/2 z-10 hidden size-4 -translate-x-1/2 -translate-y-1/2 border-2 border-foreground bg-chartreuse md:block"
                 />
                 {/* Dot marker — mobile (right line) */}
                 <div
                   aria-hidden="true"
-                  className="absolute top-1/2 right-0 z-10 block size-4 -translate-y-1/2 translate-x-1/2 rounded-full border-4 border-background bg-brand md:hidden"
+                  className="absolute top-1/2 right-0 z-10 block size-4 translate-x-1/2 -translate-y-1/2 border-2 border-foreground bg-chartreuse md:hidden"
                 />
 
                 <div
                   className={cn(
                     "w-full",
                     isLeft
-                      ? "md:ml-0 md:mr-auto md:w-1/2 md:pr-12"
-                      : "md:ml-auto md:mr-0 md:w-1/2 md:pl-12"
+                      ? "md:mr-auto md:ml-0 md:w-1/2 md:pr-12"
+                      : "md:mr-0 md:ml-auto md:w-1/2 md:pl-12"
                   )}
                 >
-                  <article className="rounded-xl border border-border/60 bg-card/50 p-6 transition-colors duration-200 hover:border-brand/40 hover:bg-card/70">
+                  <article className="border-2 border-foreground bg-card p-6 shadow-[6px_6px_0_var(--ink)] transition-transform duration-200 hover:-translate-y-1">
                     <time
                       dateTime={exp.period}
-                      className="font-mono text-xs text-brand"
+                      className="font-mono text-xs font-bold text-cobalt"
                     >
                       {exp.period}
                     </time>
@@ -123,7 +126,7 @@ export function Experience() {
                     <Highlights items={exp.highlights} />
                     {exp.projects?.length ? (
                       <div className="mt-5">
-                        <p className="flex items-center gap-1.5 text-[0.65rem] font-semibold uppercase tracking-[0.2em] text-brand">
+                        <p className="flex items-center gap-1.5 text-[0.65rem] font-bold tracking-[0.2em] text-cobalt uppercase">
                           <FolderOpen className="size-3" aria-hidden="true" />
                           Projects
                         </p>
@@ -131,14 +134,14 @@ export function Experience() {
                           {exp.projects.map((p) => (
                             <li
                               key={p.name}
-                              className="flex flex-wrap items-baseline gap-x-2 rounded-lg border border-border/50 bg-card/30 px-3 py-2 text-sm"
+                              className="flex flex-wrap items-baseline gap-x-2 border-2 border-foreground bg-muted px-3 py-2 text-sm"
                             >
                               {p.href ? (
                                 <a
                                   href={p.href}
                                   target="_blank"
                                   rel="noreferrer"
-                                  className="font-medium text-foreground hover:text-brand"
+                                  className="font-bold text-foreground hover:bg-chartreuse"
                                 >
                                   {p.name}
                                 </a>

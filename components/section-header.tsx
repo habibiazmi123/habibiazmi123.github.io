@@ -12,11 +12,14 @@ export function SectionHeader({
   className?: string
 }) {
   return (
-    <div className={cn("max-w-2xl", className)} data-animate>
-      <p className="font-mono text-xs uppercase tracking-[0.2em] text-brand">
+    <div
+      className={cn("max-w-2xl border-l-4 border-cobalt pl-4", className)}
+      data-animate
+    >
+      <p className="font-mono text-xs font-bold tracking-[0.2em] text-cobalt uppercase">
         {eyebrow}
       </p>
-      <h2 className="mt-3 text-2xl font-semibold tracking-tight sm:text-3xl">
+      <h2 className="mt-3 text-2xl font-black tracking-tight sm:text-3xl">
         {title}
       </h2>
       {description ? (

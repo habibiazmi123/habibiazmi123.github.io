@@ -22,10 +22,10 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
 
   return (
     <Dialog open={!!project} onOpenChange={(open) => !open && onClose()}>
-      <DialogContent className="!max-w-4xl max-h-[85vh] overflow-y-auto p-0">
+      <DialogContent className="max-h-[85vh] !max-w-4xl overflow-y-auto p-0">
         <div className="flex flex-col md:flex-row">
           <div className="shrink-0 md:w-1/2">
-            <BrowserFrame className="h-full rounded-none border-0 md:rounded-l-xl md:border-r">
+            <BrowserFrame className="h-full rounded-none border-0 shadow-none md:rounded-l-sm md:border-r-2">
               {project.image ? (
                 <div className="relative aspect-video h-full md:aspect-auto">
                   <Image
@@ -51,7 +51,7 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
 
           <div className="flex flex-1 flex-col p-5 sm:p-6">
             <DialogHeader className="text-left">
-              <DialogTitle className="text-xl font-semibold tracking-tight sm:text-2xl">
+              <DialogTitle className="text-xl font-black tracking-tight sm:text-2xl">
                 {project.name}
               </DialogTitle>
               {project.period ? (
@@ -67,7 +67,7 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
 
             {project.details && project.details.length > 0 ? (
               <div className="mt-4">
-                <h4 className="font-mono text-xs uppercase tracking-[0.15em] text-foreground">
+                <h4 className="font-mono text-xs tracking-[0.15em] text-foreground uppercase">
                   What I did
                 </h4>
                 <ul className="mt-2 space-y-1.5">
@@ -98,7 +98,7 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
                 href={project.href}
                 target="_blank"
                 rel="noreferrer"
-                className="mt-5 inline-flex w-fit items-center gap-2 rounded-md bg-brand px-5 py-2.5 text-sm font-medium text-brand-foreground transition-opacity hover:opacity-90"
+                className="mt-5 inline-flex w-fit items-center gap-2 border-2 border-foreground bg-cobalt px-5 py-2.5 text-sm font-bold text-primary-foreground shadow-[4px_4px_0_var(--ink)] transition-transform hover:translate-x-1 hover:translate-y-1 hover:shadow-none"
               >
                 View project <ArrowUpRight className="size-4" />
               </a>

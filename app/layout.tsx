@@ -4,7 +4,6 @@ import { Geist, Geist_Mono } from "next/font/google"
 import "./globals.css"
 import { PostHogProvider } from "@/components/posthog-provider"
 import { ThemeProvider } from "@/components/theme-provider"
-import { ParticlesBackground } from "@/components/particles-background"
 import { cn } from "@/lib/utils"
 import { profile } from "@/lib/portfolio"
 
@@ -78,17 +77,16 @@ export default function RootLayout({
     <html
       lang="en"
       suppressHydrationWarning
-      className={cn("antialiased", fontMono.variable, "font-sans", geist.variable)}
+      className={cn(
+        "antialiased",
+        fontMono.variable,
+        "font-sans",
+        geist.variable
+      )}
     >
       <body>
         <ThemeProvider>
           <PostHogProvider>
-            <div
-              aria-hidden
-              className="pointer-events-none fixed inset-0 z-0"
-            >
-              <ParticlesBackground />
-            </div>
             <div className="relative z-10">{children}</div>
           </PostHogProvider>
         </ThemeProvider>

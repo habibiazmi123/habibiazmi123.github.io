@@ -267,14 +267,29 @@ export const projects: Project[] = [
     ],
   },
   {
-    name: "ELAO",
+    name: "Wine Auction",
+    description:
+      "Online wine auction platform that enables collectors, wineries, and buyers to discover, bid on, and purchase rare and premium wines through secure real-time auctions.",
+    tags: ["Vue.js", "Node.js", "WebSocket", "Stripe"],
+    period: "2024",
+    accent: "#7f1d1d",
+    href: "http://diliapp.be",
+    image: "/dili.png",
+    details: [
+      "Developed a real-time bidding system with live auction updates",
+      "Built seller listing, auction scheduling, and bid management features",
+      "Implemented secure payment processing and order management",
+    ],
+  },
+  {
+    name: "Elao",
     description:
       "Language assessment SaaS for universities, recruiters, and enterprises to automate proficiency testing, candidate evaluation, and reporting.",
-    tags: ["Vue.js", "Node.js", "MangoPay", "AI TTS"],
+    tags: ["Vue.js", "Node.js", "AI TTS"],
     period: "2024",
     accent: "#4c1d95",
-    href: "https://www.elao-test.com",
-    image: "/dili.png",
+    href: "https://www.elao-test.com/en/",
+    image: "/elao.png",
     details: [
       "Shipped language assessment automation features for universities and enterprises",
       "Built proficiency testing and candidate evaluation workflows",

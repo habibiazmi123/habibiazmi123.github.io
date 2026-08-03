@@ -2,7 +2,7 @@ import { allTech } from "@/lib/portfolio"
 
 function Badge({ item }: { item: string }) {
   return (
-    <li className="inline-flex shrink-0 items-center rounded-full border border-border/40 px-4 py-2 text-sm text-muted-foreground">
+    <li className="inline-flex shrink-0 items-center border-2 border-foreground bg-card px-4 py-2 text-sm font-bold text-foreground shadow-[3px_3px_0_var(--ink)]">
       {item}
     </li>
   )

@@ -8,9 +8,15 @@ import { projects } from "@/lib/portfolio"
 import { cn } from "@/lib/utils"
 import { ProjectModal } from "@/components/project-modal"
 
-export function ProjectTag({ label, accent }: { label: string; accent: string }) {
+export function ProjectTag({
+  label,
+  accent,
+}: {
+  label: string
+  accent: string
+}) {
   return (
-    <span className="inline-flex items-center gap-1.5 rounded-full border border-border/60 bg-muted/40 px-2.5 py-1 text-[0.65rem] font-semibold uppercase tracking-wider text-muted-foreground">
+    <span className="inline-flex items-center gap-1.5 border-2 border-foreground bg-chartreuse px-2.5 py-1 text-[0.65rem] font-bold tracking-wider text-foreground uppercase">
       <span
         className="size-1.5 rounded-full"
         style={{ backgroundColor: accent }}
@@ -30,14 +36,14 @@ export function BrowserFrame({
   return (
     <div
       className={cn(
-        "relative flex flex-col overflow-hidden rounded-xl border border-border/60 bg-card shadow-sm",
+        "relative flex flex-col overflow-hidden border-2 border-foreground bg-card shadow-[4px_4px_0_var(--ink)]",
         className
       )}
     >
-      <div className="flex items-center gap-1.5 border-b border-border/40 bg-muted/50 px-3 py-2">
-        <span className="size-2 rounded-full bg-red-400/80" />
-        <span className="size-2 rounded-full bg-amber-400/80" />
-        <span className="size-2 rounded-full bg-emerald-400/80" />
+      <div className="flex items-center gap-1.5 border-b-2 border-foreground bg-chartreuse px-3 py-2">
+        <span className="size-2 border border-foreground bg-coral" />
+        <span className="size-2 border border-foreground bg-chartreuse" />
+        <span className="size-2 border border-foreground bg-cobalt" />
       </div>
       <div className="relative flex-1 overflow-hidden bg-background">
         {children}
@@ -78,7 +84,7 @@ function ProjectImage({
           </span>
         </div>
       )}
-      <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/35 via-black/5 to-transparent" />
+      <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-ink/35 via-transparent to-transparent" />
     </BrowserFrame>
   )
 }
@@ -95,7 +101,7 @@ function ProjectCard({
   if (featured) {
     return (
       <article
-        className="group relative cursor-pointer overflow-hidden rounded-2xl border border-border/60 bg-card/40 transition-all duration-300 hover:-translate-y-1.5 hover:border-brand/40 hover:shadow-[0_24px_60px_-24px_rgba(0,0,0,0.6)]"
+        className="group relative cursor-pointer overflow-hidden border-2 border-foreground bg-cobalt text-primary-foreground shadow-[8px_8px_0_var(--ink)] transition-transform duration-300 hover:-translate-y-1"
         data-animate
         onClick={onClick}
       >
@@ -106,18 +112,18 @@ function ProjectCard({
             objectPosition="center"
           />
           <div className="flex flex-col justify-center p-6 sm:p-8 lg:p-10">
-            <p className="font-mono text-xs uppercase tracking-[0.2em] text-brand">
+            <p className="font-mono text-xs font-bold tracking-[0.2em] text-primary-foreground uppercase">
               Featured Project
             </p>
-            <h3 className="mt-3 text-2xl font-semibold tracking-tight text-foreground sm:text-3xl">
+            <h3 className="mt-3 text-2xl font-black tracking-tight text-primary-foreground sm:text-3xl">
               {project.name}
             </h3>
             {project.period ? (
-              <p className="mt-1 font-mono text-xs text-muted-foreground">
+              <p className="mt-1 font-mono text-xs text-primary-foreground/80">
                 {project.period}
               </p>
             ) : null}
-            <p className="mt-4 max-w-lg text-sm leading-relaxed text-muted-foreground sm:text-base">
+            <p className="mt-4 max-w-lg text-sm leading-relaxed text-primary-foreground/90 sm:text-base">
               {project.description}
             </p>
             <div className="mt-6 flex flex-wrap gap-2">
@@ -131,7 +137,7 @@ function ProjectCard({
                 target="_blank"
                 rel="noreferrer"
                 onClick={(e) => e.stopPropagation()}
-                className="mt-8 inline-flex w-fit items-center gap-2 rounded-md bg-brand px-5 py-2.5 text-sm font-medium text-brand-foreground transition-opacity hover:opacity-90"
+                className="mt-8 inline-flex w-fit items-center gap-2 border-2 border-foreground bg-chartreuse px-5 py-2.5 text-sm font-bold text-foreground shadow-[4px_4px_0_var(--ink)] transition-transform hover:translate-x-1 hover:translate-y-1 hover:shadow-none"
               >
                 View project <ArrowUpRight className="size-4" />
               </a>
@@ -144,7 +150,7 @@ function ProjectCard({
 
   return (
     <article
-      className="group relative flex cursor-pointer flex-col overflow-hidden rounded-2xl border border-border/60 border-l-[3px] bg-card/40 transition-all duration-300 hover:-translate-y-1.5 hover:border-brand/40 hover:shadow-[0_20px_50px_-20px_rgba(0,0,0,0.5)]"
+      className="group relative flex cursor-pointer flex-col overflow-hidden border-2 border-l-[8px] border-foreground bg-card transition-transform duration-300 odd:bg-chartreuse even:bg-coral hover:-translate-y-1 hover:shadow-[6px_6px_0_var(--ink)]"
       style={{ borderLeftColor: project.accent }}
       data-animate
       onClick={onClick}
@@ -173,7 +179,7 @@ function ProjectCard({
               rel="noreferrer"
               aria-label={`Open ${project.name}`}
               onClick={(e) => e.stopPropagation()}
-              className="grid size-8 shrink-0 place-items-center rounded-xl border border-border/60 bg-card/60 text-muted-foreground transition-colors hover:bg-card hover:text-foreground"
+              className="grid size-8 shrink-0 place-items-center border-2 border-foreground bg-card text-foreground transition-transform hover:translate-x-0.5 hover:translate-y-0.5"
             >
               <ExternalLink className="size-4" />
             </a>

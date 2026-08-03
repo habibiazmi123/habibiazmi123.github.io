@@ -20,7 +20,7 @@ export function Certifications() {
           <Card
             key={c.name}
             data-animate
-            className="border-border/60 bg-card/40"
+            className="bg-card transition-transform hover:-translate-y-1"
           >
             <a
               href={c.href}
@@ -29,13 +29,13 @@ export function Certifications() {
               className="flex items-center justify-between gap-4 px-5 py-4"
             >
               <div>
-                <p className="text-sm font-medium leading-snug">{c.name}</p>
-                <p className="mt-0.5 text-xs text-muted-foreground">
+                <p className="text-sm leading-snug font-bold">{c.name}</p>
+                <p className="mt-0.5 font-mono text-xs text-muted-foreground">
                   {c.issuer}
                   {c.year ? ` · ${c.year}` : ""}
                 </p>
               </div>
-              <ArrowUpRight className="size-4 shrink-0 text-muted-foreground" />
+              <ArrowUpRight className="size-4 shrink-0 text-cobalt" />
             </a>
           </Card>
         ))}
