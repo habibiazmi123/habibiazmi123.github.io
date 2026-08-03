@@ -158,6 +158,7 @@ export const techStack: TechCategory[] = [
 
 export const techColors: Record<string, string> = {
   Go: "#00ADD8",
+  Golang: "#00ADD8",
   TypeScript: "#3178C6",
   JavaScript: "#F7DF1E",
   Python: "#3776AB",
@@ -165,12 +166,21 @@ export const techColors: Record<string, string> = {
   "Next.js": "#FFFFFF",
   React: "#61DAFB",
   "Vue.js": "#42B883",
+  Vuex: "#42B883",
   "React Native": "#61DAFB",
   "Tailwind CSS": "#38BDF8",
   "Node.js": "#5FA04E",
   Laravel: "#FF2D20",
   FastAPI: "#05998B",
   "REST APIs": "#FF6F00",
+  "OAuth 2.0": "#4285F4",
+  LDAP: "#FF6F00",
+  WebSockets: "#4E8DDB",
+  "AWS Chime": "#FF9900",
+  MangoPay: "#F47B20",
+  "AI TTS": "#A855F7",
+  Midtrans: "#FF1F1F",
+  RBAC: "#6B7280",
   PostgreSQL: "#4169E1",
   MySQL: "#00758F",
   AWS: "#FF9900",
@@ -200,10 +210,11 @@ export const projects: Project[] = [
     name: "TGKypas",
     description:
       "Identity and Access Management platform automating access governance, approval workflows, compliance reviews, and audit trails across the Telkom Group.",
-    tags: ["IAM", "Security", "Governance"],
+    tags: ["Laravel", "Golang", "OAuth 2.0", "LDAP", "REST APIs"],
     period: "2022 — Present",
     accent: "#0e7490",
     image: "/kypas.png",
+    href: "https://tgkypas.telkom.co.id",
     details: [
       "Co-built IAM platform automating access governance and approval workflows",
       "Designed audit trail system for compliance reviews across the Telkom Group",
@@ -218,6 +229,7 @@ export const projects: Project[] = [
     period: "2022 — Present",
     accent: "#1e3a8a",
     image: "/tgsso.png",
+    href: "https://sso.telkom.co.id",
     details: [
       "Architected enterprise SSO with OAuth 2.0 and LDAP securing access for 40,000+ users",
       "Owned identity services for 30K employees and 10K partner accounts",
@@ -228,9 +240,10 @@ export const projects: Project[] = [
     name: "Edelweiss Hospital",
     description:
       "Online patient registration and appointment management platform streamlining patient onboarding and experience.",
-    tags: ["Healthcare", "Appointments"],
+    tags: ["Vue.js", "Node.js", "WebSockets", "AWS Chime"],
     period: "2018 — 2021",
     accent: "#4c1d95",
+    href: "http://edelweiss.id",
     image: "/edelweiss.png",
     details: [
       "Delivered patient registration and appointment management platform",
@@ -242,7 +255,7 @@ export const projects: Project[] = [
     name: "Pegi Rating",
     description:
       "Public website and game rating search portal for PEGI, the Pan European Game Information system used across 40+ countries to classify age ratings and content descriptors.",
-    tags: ["Gaming", "Rating", "Public Portal"],
+    tags: ["Vue.js", "Node.js", "TypeScript"],
     period: "2024",
     accent: "#1d4ed8",
     href: "https://pegi.info",
@@ -257,9 +270,10 @@ export const projects: Project[] = [
     name: "ELAO",
     description:
       "Language assessment SaaS for universities, recruiters, and enterprises to automate proficiency testing, candidate evaluation, and reporting.",
-    tags: ["SaaS", "Evaluation", "Reporting"],
+    tags: ["Vue.js", "Node.js", "MangoPay", "AI TTS"],
     period: "2024",
     accent: "#4c1d95",
+    href: "https://www.elao-test.com",
     image: "/dili.png",
     details: [
       "Shipped language assessment automation features for universities and enterprises",
@@ -271,9 +285,10 @@ export const projects: Project[] = [
     name: "Leapsy",
     description:
       "Digital language-learning platform with personalized learning, progress tracking, and content management for learners and educators.",
-    tags: ["EdTech", "Learning", "Content"],
+    tags: ["Vue.js", "Node.js", "MangoPay", "AI TTS"],
     period: "2024",
     accent: "#0e7490",
+    href: "https://leapsy.com",
     image: "/leapsy.png",
     details: [
       "Built learning platform with personalized content and progress tracking",
@@ -286,7 +301,7 @@ export const projects: Project[] = [
     description:
       "Online crowdfunding platform from scratch in Laravel supporting BAZNAS programs across West Java, with Midtrans (GoPay/QRIS) and bank mutation payments.",
     href: "https://baznasjabar.org",
-    tags: ["Laravel", "Payments", "Fullstack"],
+    tags: ["Laravel", "PHP", "MySQL", "Midtrans"],
     period: "2019",
     accent: "#0e7490",
     image: "/baznas.png",
@@ -300,9 +315,10 @@ export const projects: Project[] = [
     name: "HRIS SaaS",
     description:
       "SaaS Human Resource Information System with RBAC, payroll automation, attendance, and employee administration workflows.",
-    tags: ["HRIS", "RBAC", "Payroll", "Vue.js"],
+    tags: ["Vue.js", "Vuex", "React Native", "RBAC"],
     period: "2018 — 2021",
     accent: "#1e3a8a",
+    href: "https://beta.digispace.id",
     image: "/digispace.png",
     details: [
       "Led team of 3 engineers to ship SaaS HRIS with RBAC, payroll, and attendance",
