@@ -4,7 +4,7 @@ import { SectionHeader } from "@/components/section-header"
 import { projects } from "@/lib/portfolio"
 import { cn } from "@/lib/utils"
 
-function ProjectTag({ label, accent }: { label: string; accent: string }) {
+export function ProjectTag({ label, accent }: { label: string; accent: string }) {
   return (
     <span className="inline-flex items-center gap-1.5 rounded-full border border-border/60 bg-muted/40 px-2.5 py-1 text-[0.65rem] font-semibold uppercase tracking-wider text-muted-foreground">
       <span
@@ -16,7 +16,7 @@ function ProjectTag({ label, accent }: { label: string; accent: string }) {
   )
 }
 
-function BrowserFrame({
+export function BrowserFrame({
   children,
   className,
 }: {
