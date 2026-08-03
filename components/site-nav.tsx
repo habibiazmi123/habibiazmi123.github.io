@@ -2,6 +2,7 @@
 
 import * as React from "react"
 import { Moon, Sun } from "lucide-react"
+import Image from "next/image"
 import { useTheme } from "next-themes"
 import { Scrollspy } from "@/components/reui/scrollspy"
 import { cn } from "@/lib/utils"
@@ -36,8 +37,7 @@ export function SiteNav() {
     >
       <nav className="mx-auto flex h-16 max-w-5xl items-center justify-between px-5">
         <a href="#top" className="font-mono text-sm font-bold tracking-tight">
-          {profile.name}
-          <span className="text-brand">.</span>
+          <Image src="/logo.png" alt={profile.name} width={36} height={36} />
         </a>
 
         <Scrollspy
