@@ -166,7 +166,7 @@ export const techColors: Record<string, string> = {
   "Next.js": "#FFFFFF",
   React: "#61DAFB",
   "Vue.js": "#42B883",
-  Pinecone: "#42B883",
+  Vuex: "#42B883",
   "React Native": "#61DAFB",
   "Tailwind CSS": "#38BDF8",
   "Node.js": "#5FA04E",
@@ -267,7 +267,7 @@ export const projects: Project[] = [
     ],
   },
   {
-    name: "Wine Auction",
+    name: "Dili",
     description:
       "Online wine auction platform that enables collectors, wineries, and buyers to discover, bid on, and purchase rare and premium wines through secure real-time auctions.",
     tags: ["Vue.js", "Node.js", "WebSocket", "Stripe"],
