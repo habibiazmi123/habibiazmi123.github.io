@@ -7,6 +7,7 @@ import { About } from "@/components/sections/about"
 import { Experience } from "@/components/sections/experience"
 import { Projects } from "@/components/sections/projects"
 import { Certifications } from "@/components/sections/certifications"
+import { Hobby } from "@/components/sections/hobby"
 import { Contact } from "@/components/sections/contact"
 import { profile } from "@/lib/portfolio"
 
@@ -44,6 +45,7 @@ export default function Page() {
         <Experience />
         <Projects />
         <Certifications />
+        <Hobby />
         <Contact />
       </main>
       <SiteFooter />

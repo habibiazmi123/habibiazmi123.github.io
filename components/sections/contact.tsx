@@ -10,7 +10,7 @@ export function Contact() {
       <div className="border-2 border-foreground bg-cobalt p-6 text-primary-foreground shadow-[8px_8px_0_var(--ink)] sm:p-10">
         <div className="text-center" data-animate>
           <p className="font-mono text-xs font-bold tracking-[0.2em] text-primary-foreground uppercase">
-            05 / Contact
+            06 / Contact
           </p>
           <h2 className="mt-4 text-3xl font-black tracking-tight sm:text-5xl">
             Let&apos;s build something.

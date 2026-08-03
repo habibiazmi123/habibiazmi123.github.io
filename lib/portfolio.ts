@@ -16,7 +16,7 @@ export const profile = {
   stats: [
     { value: "7+", label: "Years experience" },
     { value: "40k+", label: "Users managed" },
-    { value: "10+", label: "Projects shipped" },
+    { value: "20+", label: "Projects shipped" },
     { value: "3", label: "Industries" },
   ],
 } as const
@@ -166,7 +166,7 @@ export const techColors: Record<string, string> = {
   "Next.js": "#FFFFFF",
   React: "#61DAFB",
   "Vue.js": "#42B883",
-  Vuex: "#42B883",
+  Pinecone: "#42B883",
   "React Native": "#61DAFB",
   "Tailwind CSS": "#38BDF8",
   "Node.js": "#5FA04E",
@@ -387,10 +387,20 @@ export const certifications: Certification[] = [
   },
 ]
 
+export const instagramPosts = [
+  "https://www.instagram.com/p/Bxb-GvxlgR8/",
+  "https://www.instagram.com/p/B7k2BgIlH88/",
+  "https://www.instagram.com/p/CF3H-65n38E/",
+  "https://www.instagram.com/reel/CuvbmHDgetB/",
+  "https://www.instagram.com/reel/DSrLgeeD0Oh/",
+  "https://www.instagram.com/reel/DAMvS8yB93k/",
+] as const
+
 export const navItems = [
   { id: "about", label: "About" },
   { id: "experience", label: "Experience" },
   { id: "projects", label: "Projects" },
   { id: "certifications", label: "Certifications" },
+  { id: "hobby", label: "Hobby" },
   { id: "contact", label: "Contact" },
 ] as const
