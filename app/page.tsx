@@ -45,7 +45,6 @@ export default function Page() {
         <Experience />
         <Projects />
         <Certifications />
-        <Hobby />
         <Contact />
       </main>
       <SiteFooter />
