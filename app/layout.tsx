@@ -55,10 +55,10 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: "/kypas.webp",
+        url: "/pegirating.webp",
         width: 1200,
         height: 630,
-        alt: "TGKypas — IAM Platform 40k+ users",
+        alt: "Pegi Rating — Pan European Game Information",
       },
     ],
   },
@@ -66,7 +66,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: `${profile.name} — ${profile.role}`,
     description: profile.tagline,
-    images: ["/kypas.webp"],
+    images: ["/pegirating.webp"],
   },
   robots: {
     index: true,
