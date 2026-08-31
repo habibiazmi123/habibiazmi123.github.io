@@ -58,10 +58,10 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: "/opengraph-image",
+        url: "/kypas.webp",
         width: 1200,
         height: 630,
-        alt: `${profile.name} — ${profile.role}`,
+        alt: "TGKypas — IAM Platform 40k+ users",
       },
     ],
   },
@@ -69,7 +69,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: `${profile.name} — ${profile.role}`,
     description: profile.tagline,
-    images: ["/opengraph-image"],
+    images: ["/kypas.webp"],
   },
   robots: {
     index: true,
