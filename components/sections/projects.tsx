@@ -105,11 +105,11 @@ function ProjectCard({
         data-animate
         onClick={onClick}
       >
-        <div className="lg:grid lg:grid-cols-2">
+        <div className="flex flex-col">
           <ProjectImage
             project={project}
-            className="aspect-video lg:aspect-auto lg:min-h-[22rem]"
-            objectPosition="center"
+            className="aspect-[16/9]"
+            objectPosition="top"
           />
           <div className="flex flex-col justify-center p-6 sm:p-8 lg:p-10">
             <p className="font-mono text-xs font-bold tracking-[0.2em] text-primary-foreground uppercase">
