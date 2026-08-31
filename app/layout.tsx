@@ -14,7 +14,11 @@ const fontMono = Geist_Mono({
   variable: "--font-mono",
 })
 
-const baseUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://habibiazmi.com"
+const baseUrl =
+  process.env.NEXT_PUBLIC_SITE_URL ??
+  (process.env.VERCEL_URL
+    ? `https://${process.env.VERCEL_URL}`
+    : "https://habibiazmi123-github-io.vercel.app")
 
 export const metadata: Metadata = {
   title: {
@@ -52,11 +56,20 @@ export const metadata: Metadata = {
     siteName: profile.name,
     locale: "en_US",
     type: "website",
+    images: [
+      {
+        url: "/opengraph-image",
+        width: 1200,
+        height: 630,
+        alt: `${profile.name} — ${profile.role}`,
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: `${profile.name} — ${profile.role}`,
     description: profile.tagline,
+    images: ["/opengraph-image"],
   },
   robots: {
     index: true,
