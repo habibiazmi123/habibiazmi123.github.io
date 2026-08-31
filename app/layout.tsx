@@ -24,7 +24,7 @@ export const metadata: Metadata = {
   description: profile.tagline,
   metadataBase: new URL(baseUrl),
   icons: {
-    icon: "/logo.png",
+    icon: "/logo.webp",
   },
   alternates: {
     canonical: "/",

@@ -92,7 +92,7 @@ export function Hero() {
         {/* Portrait — 40%, floating with glow */}
         <div className="relative hidden lg:col-span-5 lg:block" data-animate>
           <Image
-            src="/me.png"
+            src="/me.webp"
             alt={profile.name}
             width={400}
             height={500}

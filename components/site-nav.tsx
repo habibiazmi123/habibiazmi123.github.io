@@ -37,7 +37,7 @@ export function SiteNav() {
     >
       <nav className="mx-auto flex h-16 max-w-5xl items-center justify-between px-5">
         <a href="#top" className="font-mono text-sm font-bold tracking-tight">
-          <Image src="/logo.png" alt={profile.name} width={36} height={36} />
+          <Image src="/logo.webp" alt={profile.name} width={36} height={36} />
         </a>
 
         <Scrollspy

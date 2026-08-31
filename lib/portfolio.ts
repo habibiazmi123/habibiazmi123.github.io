@@ -214,7 +214,7 @@ export const projects: Project[] = [
     tags: ["Laravel", "Golang", "OAuth 2.0", "LDAP", "REST APIs"],
     period: "2022 — Present",
     accent: "#0e7490",
-    image: "/kypas.png",
+    image: "/kypas.webp",
     href: "https://tgkypas.telkom.co.id",
     details: [
       "Co-built IAM platform automating access governance and approval workflows",
@@ -229,7 +229,7 @@ export const projects: Project[] = [
     tags: ["Golang", "OAuth 2.0", "LDAP", "SSO"],
     period: "2022 — Present",
     accent: "#1e3a8a",
-    image: "/tgsso.png",
+    image: "/tgsso.webp",
     href: "https://sso.telkom.co.id",
     details: [
       "Architected enterprise SSO with OAuth 2.0 and LDAP securing access for 40,000+ users",
@@ -245,7 +245,7 @@ export const projects: Project[] = [
     period: "2018 — 2021",
     accent: "#4c1d95",
     href: "http://edelweiss.id",
-    image: "/edelweiss.png",
+    image: "/edelweiss.webp",
     details: [
       "Delivered patient registration and appointment management platform",
       "Streamlined patient onboarding workflows for hospital staff",
@@ -260,7 +260,7 @@ export const projects: Project[] = [
     period: "2024",
     accent: "#1d4ed8",
     href: "https://pegi.info",
-    image: "/pegirating.png",
+    image: "/pegirating.webp",
     details: [
       "Built public-facing game rating search portal for the PEGI system",
       "Delivered end-to-end for European clients across a distributed team",
@@ -275,7 +275,7 @@ export const projects: Project[] = [
     period: "2024",
     accent: "#7f1d1d",
     href: "http://diliapp.be",
-    image: "/dili.png",
+    image: "/dili.webp",
     details: [
       "Developed a real-time bidding system with live auction updates",
       "Built seller listing, auction scheduling, and bid management features",
@@ -290,7 +290,7 @@ export const projects: Project[] = [
     period: "2024",
     accent: "#4c1d95",
     href: "https://www.elao-test.com/en/",
-    image: "/elao.png",
+    image: "/elao.webp",
     details: [
       "Shipped language assessment automation features for universities and enterprises",
       "Built proficiency testing and candidate evaluation workflows",
@@ -305,7 +305,7 @@ export const projects: Project[] = [
     period: "2024",
     accent: "#0e7490",
     href: "https://leapsy.com",
-    image: "/leapsy.png",
+    image: "/leapsy.webp",
     details: [
       "Built learning platform with personalized content and progress tracking",
       "Integrated MangoPay payments and AI text-to-speech capabilities",
@@ -320,7 +320,7 @@ export const projects: Project[] = [
     tags: ["Laravel", "PHP", "MySQL", "Midtrans"],
     period: "2019",
     accent: "#0e7490",
-    image: "/baznas.png",
+    image: "/baznas.webp",
     details: [
       "Built crowdfunding platform from scratch in Laravel for BAZNAS programs",
       "Integrated Midtrans payments (GoPay, QRIS) and bank mutation processing",
@@ -335,7 +335,7 @@ export const projects: Project[] = [
     period: "2018 — 2021",
     accent: "#1e3a8a",
     href: "https://beta.digispace.id",
-    image: "/digispace.png",
+    image: "/digispace.webp",
     details: [
       "Led team of 3 engineers to ship SaaS HRIS with RBAC, payroll, and attendance",
       "Built reusable Vue.js component library and Vuex state management",
