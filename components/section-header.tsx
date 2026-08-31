@@ -13,7 +13,7 @@ export function SectionHeader({
 }) {
   return (
     <div
-      className={cn("max-w-2xl border-l-4 border-cobalt pl-4", className)}
+      className={cn("max-w-2xl border-l-[3px] border-cobalt pl-5", className)}
       data-animate
     >
       <p className="font-mono text-xs font-bold tracking-[0.2em] text-cobalt uppercase">

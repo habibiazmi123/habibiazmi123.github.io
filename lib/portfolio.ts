@@ -195,6 +195,37 @@ export const techColors: Record<string, string> = {
 
 export const allTech = techStack.flatMap((g) => g.items)
 
+export type Service = {
+  title: string
+  description: string
+  icon: "Shield" | "Globe" | "Sparkles"
+  tags: string[]
+}
+
+export const services: Service[] = [
+  {
+    title: "Identity & Access",
+    description:
+      "SSO/IAM, OAuth 2.0/LDAP, audit trails — securing 40k+ users at Telkom Group.",
+    icon: "Shield",
+    tags: ["Golang", "OAuth 2.0", "LDAP", "IAM"],
+  },
+  {
+    title: "SaaS & Web Platforms",
+    description:
+      "Next.js, React, Vue — real-time, payments, production for EU & ID clients.",
+    icon: "Globe",
+    tags: ["Next.js", "React", "Vue.js", "MangoPay"],
+  },
+  {
+    title: "AI Automation",
+    description:
+      "OCR + LLM pipelines, TTS, document extraction to automate operations.",
+    icon: "Sparkles",
+    tags: ["LLMs", "OCR", "Text-to-Speech"],
+  },
+]
+
 export type Project = {
   name: string
   description: string
@@ -204,6 +235,7 @@ export type Project = {
   accent: string
   image?: string
   details?: string[]
+  outcome?: string
 }
 
 export const projects: Project[] = [
@@ -216,6 +248,7 @@ export const projects: Project[] = [
     accent: "#0e7490",
     image: "/kypas.webp",
     href: "https://tgkypas.telkom.co.id",
+    outcome: "40k+ users · approval & audit automation",
     details: [
       "Co-built IAM platform automating access governance and approval workflows",
       "Designed audit trail system for compliance reviews across the Telkom Group",
@@ -231,6 +264,7 @@ export const projects: Project[] = [
     accent: "#1e3a8a",
     image: "/tgsso.webp",
     href: "https://sso.telkom.co.id",
+    outcome: "30k employees + 10k partners · central auth",
     details: [
       "Architected enterprise SSO with OAuth 2.0 and LDAP securing access for 40,000+ users",
       "Owned identity services for 30K employees and 10K partner accounts",
@@ -261,6 +295,7 @@ export const projects: Project[] = [
     accent: "#1d4ed8",
     href: "https://pegi.info",
     image: "/pegirating.webp",
+    outcome: "40+ countries · public rating portal",
     details: [
       "Built public-facing game rating search portal for the PEGI system",
       "Delivered end-to-end for European clients across a distributed team",
@@ -398,10 +433,9 @@ export const instagramPosts = [
 ] as const
 
 export const navItems = [
-  { id: "about", label: "About" },
-  { id: "experience", label: "Experience" },
+  { id: "services", label: "Services" },
   { id: "projects", label: "Projects" },
-  { id: "certifications", label: "Certifications" },
-  { id: "hobby", label: "Hobby" },
+  { id: "experience", label: "Experience" },
+  { id: "about", label: "About" },
   { id: "contact", label: "Contact" },
 ] as const

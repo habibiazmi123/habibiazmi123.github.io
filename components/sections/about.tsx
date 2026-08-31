@@ -4,9 +4,9 @@ import { profile } from "@/lib/portfolio"
 
 export function About() {
   return (
-    <section id="about" className="mx-auto max-w-5xl px-5 py-16 sm:py-20">
+    <section id="about" className="mx-auto max-w-5xl px-5 py-16 sm:py-24">
       <SectionHeader
-        eyebrow="01 / About"
+        eyebrow="04 / About"
         title="Engineering software that holds up at scale."
         description={profile.bio}
       />
@@ -31,7 +31,7 @@ export function About() {
       </div>
 
       <div
-        className="mt-12 max-w-3xl border-2 border-foreground bg-card p-6 text-sm leading-relaxed text-muted-foreground shadow-[6px_6px_0_var(--ink)] sm:p-8 sm:text-base"
+        className="mt-12 max-w-3xl border-2 border-foreground bg-card p-6 text-sm leading-relaxed text-muted-foreground shadow-[4px_4px_0_var(--ink)] sm:p-8 sm:text-base"
         data-animate
       >
         <p>

@@ -92,7 +92,7 @@
   --coral: #c65d3b;
   --brand: #256d5a;
   --brand-foreground: #fffaf0;
-  --grid-line: rgba(23, 23, 23, 0.045);
+  --grid-line: rgba(23, 23, 23, 0.03);
 }
 
 .dark {
@@ -133,7 +133,7 @@
   --coral: #e07a5f;
   --brand: #e7b75b;
   --brand-foreground: #171717;
-  --grid-line: rgba(255, 250, 240, 0.06);
+  --grid-line: rgba(255, 250, 240, 0.04);
 }
 
 @layer base {
@@ -175,10 +175,10 @@
   }
 }
 .animate-marquee-left {
-  animation: marquee-left 30s linear infinite;
+  animation: marquee-left 40s linear infinite;
 }
 .animate-marquee-right {
-  animation: marquee-right 30s linear infinite;
+  animation: marquee-right 40s linear infinite;
 }
 .marquee-row {
   display: flex;

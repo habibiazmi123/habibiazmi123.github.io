@@ -2,7 +2,7 @@ import { allTech } from "@/lib/portfolio"
 
 function Badge({ item }: { item: string }) {
   return (
-    <li className="inline-flex shrink-0 items-center border-2 border-foreground bg-card px-4 py-2 text-sm font-bold text-foreground shadow-[3px_3px_0_var(--ink)]">
+    <li className="inline-flex shrink-0 items-center border-2 border-foreground bg-card px-3 py-1.5 text-xs font-bold text-foreground shadow-[3px_3px_0_var(--ink)]">
       {item}
     </li>
   )
@@ -19,7 +19,7 @@ export function Technologies() {
   return (
     <section
       id="technologies"
-      className="mx-auto max-w-6xl px-5 pb-16 sm:pb-20"
+      className="mx-auto max-w-6xl px-5 py-16 sm:py-24"
     >
       <div className="mx-auto max-w-2xl text-center" data-animate>
         <h2 className="text-2xl font-semibold tracking-tight sm:text-3xl">
@@ -27,7 +27,7 @@ export function Technologies() {
         </h2>
       </div>
 
-      <div className="marquee-mask mt-6 flex flex-col gap-3 overflow-hidden">
+      <div className="marquee-mask mt-6 flex flex-col gap-4 overflow-hidden">
         <div className="marquee-row">
           <ul className="animate-marquee-left flex w-max gap-3 pr-3">
             {r1.map((item, i) => (

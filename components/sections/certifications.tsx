@@ -7,15 +7,15 @@ export function Certifications() {
   return (
     <section
       id="certifications"
-      className="mx-auto max-w-5xl px-5 py-16 sm:py-20"
+      className="mx-auto max-w-5xl px-5 py-12 sm:py-16"
     >
       <SectionHeader
-        eyebrow="04 / Certifications"
+        eyebrow="— Certifications"
         title="Continuously sharpening the tools."
-        description="A few credentials and courses I've earned along the way."
+        description="A few credentials along the way."
       />
 
-      <div className="mt-12 grid gap-3 sm:grid-cols-2">
+      <div className="mt-8 grid gap-3 sm:grid-cols-2">
         {certifications.map((c) => (
           <Card
             key={c.name}

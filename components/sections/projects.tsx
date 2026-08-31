@@ -101,7 +101,7 @@ function ProjectCard({
   if (featured) {
     return (
       <article
-        className="group relative cursor-pointer overflow-hidden border-2 border-foreground bg-cobalt text-primary-foreground shadow-[8px_8px_0_var(--ink)] transition-transform duration-300 hover:-translate-y-1"
+        className="group relative cursor-pointer overflow-hidden border-2 border-foreground bg-cobalt text-primary-foreground shadow-[6px_6px_0_var(--ink)] transition-transform duration-300 hover:-translate-y-1"
         data-animate
         onClick={onClick}
       >
@@ -115,6 +115,11 @@ function ProjectCard({
             <p className="font-mono text-xs font-bold tracking-[0.2em] text-primary-foreground uppercase">
               Featured Project
             </p>
+            {project.outcome ? (
+              <p className="mt-2 inline-flex w-fit border border-primary-foreground/20 bg-primary-foreground/10 px-2.5 py-1 font-mono text-[0.65rem] font-bold tracking-widest text-primary-foreground uppercase">
+                {project.outcome}
+              </p>
+            ) : null}
             <h3 className="mt-3 text-2xl font-black tracking-tight text-primary-foreground sm:text-3xl">
               {project.name}
             </h3>
@@ -137,7 +142,7 @@ function ProjectCard({
                 target="_blank"
                 rel="noreferrer"
                 onClick={(e) => e.stopPropagation()}
-                className="mt-8 inline-flex w-fit items-center gap-2 border-2 border-foreground bg-chartreuse px-5 py-2.5 text-sm font-bold text-foreground shadow-[4px_4px_0_var(--ink)] transition-transform hover:translate-x-1 hover:translate-y-1 hover:shadow-none"
+                className="mt-8 inline-flex w-fit items-center gap-2 border-2 border-foreground bg-chartreuse px-5 py-2.5 text-sm font-bold text-foreground shadow-[3px_3px_0_var(--ink)] transition-transform hover:translate-x-1 hover:translate-y-1 hover:shadow-none"
               >
                 View project <ArrowUpRight className="size-4" />
               </a>
@@ -150,7 +155,7 @@ function ProjectCard({
 
   return (
     <article
-      className="group relative flex cursor-pointer flex-col overflow-hidden border-2 border-l-[8px] border-foreground bg-card transition-transform duration-300 odd:bg-chartreuse even:bg-coral hover:-translate-y-1 hover:shadow-[6px_6px_0_var(--ink)]"
+      className="group relative flex cursor-pointer flex-col overflow-hidden border-2 border-l-[8px] border-foreground bg-card transition-transform duration-300 odd:bg-chartreuse even:bg-coral hover:-translate-y-1 hover:shadow-[4px_4px_0_var(--ink)]"
       style={{ borderLeftColor: project.accent }}
       data-animate
       onClick={onClick}
@@ -163,6 +168,11 @@ function ProjectCard({
       <div className="flex flex-1 flex-col p-5 sm:p-6">
         <div className="flex items-start justify-between gap-3">
           <div>
+            {project.outcome ? (
+              <p className="font-mono text-[0.6rem] font-bold tracking-widest text-cobalt uppercase">
+                {project.outcome}
+              </p>
+            ) : null}
             <h3 className="text-lg font-semibold tracking-tight text-foreground">
               {project.name}
             </h3>
@@ -205,11 +215,11 @@ export function Projects() {
   const [featured, ...rest] = projects
 
   return (
-    <section id="projects" className="mx-auto max-w-6xl px-5 py-16 sm:py-20">
+    <section id="projects" className="mx-auto max-w-6xl px-5 py-16 sm:py-24">
       <SectionHeader
-        eyebrow="03 / Projects"
-        title="Selected work across enterprise, SaaS, and civic tech."
-        description="A few platforms I've built or shaped — from identity systems serving 40,000+ users to crowdfunding and civic apps."
+        eyebrow="02 / Projects"
+        title="Selected work — outcomes, not just code."
+        description="Platforms I've built or shaped — from IAM for 40,000+ users to SaaS and civic tech."
       />
 
       <div className="mt-10">

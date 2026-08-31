@@ -58,52 +58,32 @@ export function Experience() {
   return (
     <section
       id="experience"
-      className="mx-auto max-w-5xl px-5 py-16 sm:py-20"
+      className="mx-auto max-w-5xl px-5 py-16 sm:py-24"
       aria-label="Experience timeline"
     >
       <SectionHeader
-        eyebrow="02 / Experience"
+        eyebrow="03 / Experience"
         title="Seven years across telecom, SaaS, and HR tech."
         description="From freelance Laravel systems to enterprise IAM serving 40,000+ users — a timeline of the places I've built."
       />
 
-      <div className="relative mt-14">
-        {/* Center vertical line — desktop only */}
+      <div className="relative mt-10 pl-8 sm:pl-10">
         <div
           aria-hidden="true"
-          className="absolute top-0 bottom-0 left-1/2 hidden w-0.5 -translate-x-1/2 bg-foreground md:block"
-        />
-        {/* Right vertical line — mobile only */}
-        <div
-          aria-hidden="true"
-          className="absolute top-0 right-0 bottom-0 block w-0.5 bg-foreground md:hidden"
+          className="absolute top-0 bottom-0 left-0 w-0.5 bg-foreground"
         />
 
-        <div className="flex flex-col gap-y-10 md:gap-y-14">
-          {experiences.map((exp, i) => {
-            const isLeft = i % 2 === 0
+        <div className="flex flex-col gap-y-8">
+          {experiences.map((exp) => {
             return (
               <div key={exp.id} className="relative" data-animate>
-                {/* Dot marker — desktop (center line) */}
                 <div
                   aria-hidden="true"
-                  className="absolute top-1/2 left-1/2 z-10 hidden size-4 -translate-x-1/2 -translate-y-1/2 border-2 border-foreground bg-chartreuse md:block"
-                />
-                {/* Dot marker — mobile (right line) */}
-                <div
-                  aria-hidden="true"
-                  className="absolute top-1/2 right-0 z-10 block size-4 translate-x-1/2 -translate-y-1/2 border-2 border-foreground bg-chartreuse md:hidden"
+                  className="absolute top-8 left-0 size-3 -translate-x-[calc(100%+14px)] border-2 border-foreground bg-chartreuse sm:size-3.5 sm:-translate-x-[calc(100%+18px)]"
                 />
 
-                <div
-                  className={cn(
-                    "w-full",
-                    isLeft
-                      ? "md:mr-auto md:ml-0 md:w-1/2 md:pr-12"
-                      : "md:mr-0 md:ml-auto md:w-1/2 md:pl-12"
-                  )}
-                >
-                  <article className="border-2 border-foreground bg-card p-6 shadow-[6px_6px_0_var(--ink)] transition-transform duration-200 hover:-translate-y-1">
+                <div className="w-full max-w-3xl">
+                  <article className="border-2 border-foreground bg-card p-6 shadow-[4px_4px_0_var(--ink)] transition-transform duration-200 hover:-translate-y-1">
                     <time
                       dateTime={exp.period}
                       className="font-mono text-xs font-bold text-cobalt"
