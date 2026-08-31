@@ -22,12 +22,12 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
 
   return (
     <Dialog open={!!project} onOpenChange={(open) => !open && onClose()}>
-      <DialogContent className="max-h-[85vh] !max-w-2xl overflow-y-auto p-0">
-        <div className="flex flex-col">
+      <DialogContent className="!max-w-2xl overflow-hidden p-0">
+        <div className="flex max-h-[92vh] flex-col overflow-hidden">
           <div className="shrink-0">
             <BrowserFrame className="rounded-none border-0 border-b-2 shadow-none">
               {project.image ? (
-                <div className="relative aspect-[16/9]">
+                <div className="relative aspect-[16/9] max-h-[34vh]">
                   <Image
                     src={project.image}
                     alt={`${project.name} preview`}
@@ -49,7 +49,7 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
             </BrowserFrame>
           </div>
 
-          <div className="flex flex-1 flex-col p-5 sm:p-6">
+          <div className="flex flex-1 flex-col overflow-hidden p-5 sm:p-6">
             <DialogHeader className="text-left">
               <DialogTitle className="text-xl font-black tracking-tight sm:text-2xl">
                 {project.name}
