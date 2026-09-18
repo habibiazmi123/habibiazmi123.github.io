@@ -84,7 +84,11 @@ export function Scrollspy({
 
     const clientHeight = (scrollElement as HTMLElement).clientHeight
     const viewportCenter = scrollTop + clientHeight / 2
-    const threshold = scrollTop + offset
+    const maxScrollTop = scrollElement.scrollHeight - clientHeight
+    const threshold =
+      scrollTop >= maxScrollTop
+        ? scrollTop + clientHeight
+        : scrollTop + offset
 
     // Find the section whose center is closest to the viewport center,
     // but only among sections that have already entered the viewport.
