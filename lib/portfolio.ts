@@ -433,9 +433,9 @@ export const instagramPosts = [
 ] as const
 
 export const navItems = [
-  { id: "services", label: "Services" },
   { id: "projects", label: "Projects" },
+  { id: "about", label: "Track record" },
   { id: "experience", label: "Experience" },
-  { id: "about", label: "About" },
+  { id: "services", label: "Capabilities" },
   { id: "contact", label: "Contact" },
 ] as const

@@ -1,3 +1,4 @@
+/* Hallmark - pre-emit critique: Philosophy 5, Hierarchy 4, Execution 4, Specificity 4, Restraint 4, Variety 4 */
 @import "tailwindcss";
 @import "tw-animate-css";
 @import "shadcn/tailwind.css";
@@ -139,6 +140,10 @@
 @layer base {
   * {
     @apply border-border outline-ring/50;
+  }
+  html,
+  body {
+    overflow-x: clip;
   }
   body {
     @apply bg-background text-foreground;

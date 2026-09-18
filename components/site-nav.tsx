@@ -51,12 +51,29 @@ export function SiteNav() {
               key={item.id}
               href={`#${item.id}`}
               data-scrollspy-anchor={item.id}
-              className="rounded-sm px-3 py-1.5 text-sm font-medium text-muted-foreground transition-colors hover:bg-chartreuse hover:text-foreground data-[active=true]:bg-cobalt data-[active=true]:text-primary-foreground"
+              className="rounded-sm px-3 py-1.5 text-sm font-medium text-muted-foreground transition-colors hover:bg-chartreuse hover:text-foreground focus-visible:ring-3 focus-visible:ring-cobalt/50 data-[active=true]:bg-cobalt data-[active=true]:text-primary-foreground"
             >
               {item.label}
             </a>
           ))}
         </Scrollspy>
+
+        <details className="relative md:hidden">
+          <summary className="cursor-pointer list-none border-2 border-foreground bg-card px-3 py-1.5 text-sm font-bold shadow-[3px_3px_0_var(--ink)] focus-visible:ring-3 focus-visible:ring-cobalt/50">
+            Menu
+          </summary>
+          <div className="absolute top-11 right-0 z-10 min-w-44 border-2 border-foreground bg-card p-2 shadow-[4px_4px_0_var(--ink)]">
+            {navItems.map((item) => (
+              <a
+                key={item.id}
+                href={`#${item.id}`}
+                className="block border-b border-foreground/20 px-3 py-2 text-sm font-medium last:border-0 hover:bg-chartreuse focus-visible:bg-chartreuse"
+              >
+                {item.label}
+              </a>
+            ))}
+          </div>
+        </details>
 
         <div className="flex items-center gap-3">
           {mounted ? (
@@ -92,7 +109,7 @@ export function SiteNav() {
 
           <a
             href="#contact"
-            className="hidden border-2 border-foreground bg-cobalt px-4 py-1.5 text-sm font-bold text-primary-foreground shadow-[4px_4px_0_var(--ink)] transition-transform hover:translate-x-1 hover:translate-y-1 hover:shadow-none md:inline-flex"
+            className="hidden border-2 border-foreground bg-cobalt px-4 py-1.5 text-sm font-bold text-primary-foreground shadow-[4px_4px_0_var(--ink)] transition-transform hover:translate-x-1 hover:translate-y-1 hover:shadow-none focus-visible:ring-3 focus-visible:ring-cobalt/50 md:inline-flex"
           >
             Get in touch
           </a>

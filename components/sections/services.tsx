@@ -8,8 +8,8 @@ export function Services() {
   return (
     <section id="services" className="mx-auto max-w-6xl px-5 py-16 sm:py-24">
       <SectionHeader
-        eyebrow="01 / Services"
-        title="How I can help."
+        eyebrow="Capabilities"
+        title="The problems I like solving."
         description="Outcome-focused engineering for teams that need to ship and scale — from IAM at 40k users to SaaS and AI automation."
       />
       <div className="mt-10 grid gap-4 md:grid-cols-3" data-animate>

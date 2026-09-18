@@ -7,12 +7,19 @@ import { profile } from "@/lib/portfolio"
 export function Hero() {
   return (
     <section id="top" className="relative overflow-hidden px-5 pt-20">
-      <div className="mx-auto grid max-w-6xl grid-cols-1 items-center gap-12 py-14 lg:grid-cols-12 lg:gap-16 lg:py-20">
+      <div className="mx-auto grid max-w-6xl grid-cols-1 items-center gap-12 py-12 lg:grid-cols-12 lg:gap-16 lg:py-20">
         <div className="lg:col-span-7">
+          <p
+            data-animate
+            className="font-mono text-xs font-bold tracking-[0.16em] text-coral uppercase"
+          >
+            {profile.name} · {profile.location}
+          </p>
+
           {profile.available ? (
             <p
               data-animate
-              className="inline-flex items-center gap-2 border-2 border-foreground bg-chartreuse px-3.5 py-1.5 text-xs font-bold text-foreground shadow-[3px_3px_0_var(--ink)]"
+              className="mt-5 inline-flex items-center gap-2 border-2 border-foreground bg-chartreuse px-3.5 py-1.5 text-xs font-bold text-foreground shadow-[3px_3px_0_var(--ink)]"
             >
               <span className="relative flex size-2">
                 <span className="absolute inline-flex size-full animate-ping rounded-full bg-cobalt opacity-75" />
@@ -24,33 +31,27 @@ export function Hero() {
 
           <h1
             data-animate
-            className="mt-8 text-4xl leading-[1.05] font-black tracking-tight sm:text-5xl lg:text-6xl"
+            className="mt-8 max-w-3xl text-5xl leading-[0.96] font-black tracking-[-0.06em] sm:text-6xl lg:text-8xl"
           >
-            <span className="text-foreground">
-              I build systems that scale to
-            </span>{" "}
-            <span className="inline-block bg-cobalt px-2 text-primary-foreground shadow-[4px_4px_0_var(--ink)]">
-              40,000+ users.
-            </span>
+            I build useful <span className="text-cobalt">systems</span> for real
+            people.
           </h1>
 
           <p
             data-animate
-            className="mt-6 max-w-[48ch] text-base leading-[1.7] text-muted-foreground sm:text-lg"
+            className="mt-7 max-w-[52ch] text-base leading-[1.7] text-muted-foreground sm:text-lg"
           >
-            <span className="font-medium text-foreground">
-              {profile.role}
-            </span>{" "}
-            — IAM/SSO, SaaS, AI pipelines. 7+ years shipping for Telkom Group,
-            EU SaaS, and healthcare. Based in {profile.location}.
+            <span className="font-medium text-foreground">{profile.role}</span>{" "}
+            I design and ship identity, SaaS, and AI-enabled products that hold
+            up in production.
           </p>
 
           <div data-animate className="mt-8 flex flex-wrap items-center gap-4">
             <a
-              href={`mailto:${profile.email}`}
+              href="#projects"
               className="inline-flex items-center gap-2 border-2 border-foreground bg-cobalt px-6 py-3 text-sm font-bold text-primary-foreground shadow-[4px_4px_0_var(--ink)] transition-transform duration-200 hover:translate-x-1 hover:translate-y-1 hover:shadow-none"
             >
-              Email me <ArrowRight className="size-4" />
+              Explore my work <ArrowRight className="size-4" />
             </a>
             <a
               href="/Muhamad_Habibi_Azmi_Fullstack_Engineer_CV.pdf"
@@ -65,20 +66,26 @@ export function Hero() {
             data-animate
             className="mt-6 font-mono text-xs tracking-wide text-muted-foreground"
           >
-            Trusted by Telkom Group · EU clients · 40k+ users in production
+            IAM · SaaS · AI · 7+ years shipping for telecom, EU, and healthcare
           </p>
         </div>
 
-        <div className="relative hidden lg:col-span-5 lg:block" data-animate>
-          <Image
-            src="/me.webp"
-            alt={profile.name}
-            width={400}
-            height={500}
-            sizes="(max-width: 1024px) 50vw, 25vw"
-            className="mx-auto h-auto w-3/4 border-2 border-foreground bg-coral p-3 shadow-[6px_6px_0_var(--ink)]"
-            priority
-          />
+        <div className="relative lg:col-span-5" data-animate>
+          <figure className="mx-auto max-w-sm border-2 border-foreground bg-coral p-3 shadow-[6px_6px_0_var(--ink)]">
+            <Image
+              src="/me.webp"
+              alt={profile.name}
+              width={400}
+              height={500}
+              sizes="(max-width: 1024px) 80vw, 25vw"
+              className="aspect-[4/5] h-auto w-full object-cover"
+              priority
+            />
+            <figcaption className="flex items-center justify-between gap-3 pt-3 font-mono text-[0.65rem] font-bold tracking-wider text-foreground uppercase">
+              <span>Based in Bandung</span>
+              <span>Open to the right team</span>
+            </figcaption>
+          </figure>
         </div>
       </div>
     </section>

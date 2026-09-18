@@ -10,7 +10,7 @@ export function Contact() {
       <div className="border-2 border-foreground bg-cobalt p-6 text-primary-foreground shadow-[6px_6px_0_var(--ink)] sm:p-10">
         <div className="text-center" data-animate>
           <p className="font-mono text-xs font-bold tracking-[0.2em] text-primary-foreground uppercase">
-            05 / Contact
+            Start a conversation
           </p>
           <h2 className="mt-4 text-3xl font-black tracking-tight sm:text-5xl">
             Let&apos;s build something.
@@ -28,15 +28,16 @@ export function Contact() {
           <div className="flex flex-wrap justify-center gap-3">
             <a
               href={`mailto:${profile.email}`}
-              className="inline-flex items-center gap-2 border-2 border-foreground bg-chartreuse px-6 py-3 text-sm font-bold text-foreground shadow-[4px_4px_0_var(--ink)] transition-transform hover:translate-x-1 hover:translate-y-1 hover:shadow-none"
+              aria-label={`Email ${profile.email}`}
+              className="inline-flex items-center gap-2 border-2 border-foreground bg-chartreuse px-6 py-3 text-sm font-bold text-foreground shadow-[4px_4px_0_var(--ink)] transition-transform hover:translate-x-1 hover:translate-y-1 hover:shadow-none focus-visible:ring-3 focus-visible:ring-chartreuse/70"
             >
-              <Mail className="size-4" /> {profile.email}
+              <Mail className="size-4" /> Email me
             </a>
             <a
               href="/Muhamad_Habibi_Azmi_Fullstack_Engineer_CV.pdf"
               target="_blank"
               rel="noreferrer"
-              className="inline-flex items-center gap-2 border-2 border-foreground bg-card px-6 py-3 text-sm font-bold text-foreground shadow-[4px_4px_0_var(--ink)] transition-transform hover:translate-x-1 hover:translate-y-1 hover:shadow-none"
+              className="inline-flex items-center gap-2 border-2 border-foreground bg-card px-6 py-3 text-sm font-bold text-foreground shadow-[4px_4px_0_var(--ink)] transition-transform hover:translate-x-1 hover:translate-y-1 hover:shadow-none focus-visible:ring-3 focus-visible:ring-chartreuse/70"
             >
               Download CV
             </a>
@@ -44,7 +45,7 @@ export function Contact() {
               href={`https://wa.me/${profile.whatsapp.replace(/\D/g, "")}`}
               target="_blank"
               rel="noreferrer"
-              className="inline-flex items-center gap-2 border-2 border-foreground bg-chartreuse px-6 py-3 text-sm font-bold text-foreground shadow-[4px_4px_0_var(--ink)] transition-transform hover:translate-x-1 hover:translate-y-1 hover:shadow-none"
+              className="inline-flex items-center gap-2 border-2 border-foreground bg-chartreuse px-6 py-3 text-sm font-bold text-foreground shadow-[4px_4px_0_var(--ink)] transition-transform hover:translate-x-1 hover:translate-y-1 hover:shadow-none focus-visible:ring-3 focus-visible:ring-chartreuse/70"
             >
               <MessageCircle className="size-4" /> WhatsApp
             </a>

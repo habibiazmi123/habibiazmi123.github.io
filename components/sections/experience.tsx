@@ -40,7 +40,7 @@ function Highlights({ items }: { items: string[] }) {
       </ul>
       <button
         onClick={() => setExpanded(!expanded)}
-        className="mt-2 flex items-center gap-1 text-xs font-bold text-cobalt transition-colors hover:bg-chartreuse"
+        className="mt-2 flex items-center gap-1 text-xs font-bold text-cobalt transition-colors hover:bg-chartreuse focus-visible:ring-3 focus-visible:ring-cobalt/50"
       >
         {expanded ? "Show less" : `Show more (${items.length - 3})`}
         <ChevronDown
@@ -62,8 +62,8 @@ export function Experience() {
       aria-label="Experience timeline"
     >
       <SectionHeader
-        eyebrow="03 / Experience"
-        title="Seven years across telecom, SaaS, and HR tech."
+        eyebrow="Experience"
+        title="The places I have built."
         description="From freelance Laravel systems to enterprise IAM serving 40,000+ users — a timeline of the places I've built."
       />
 

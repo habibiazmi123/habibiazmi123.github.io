@@ -10,7 +10,7 @@ export function Certifications() {
       className="mx-auto max-w-5xl px-5 py-12 sm:py-16"
     >
       <SectionHeader
-        eyebrow="— Certifications"
+        eyebrow="Learning proof"
         title="Continuously sharpening the tools."
         description="A few credentials along the way."
       />

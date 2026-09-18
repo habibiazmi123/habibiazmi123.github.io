@@ -2,7 +2,7 @@ import { allTech } from "@/lib/portfolio"
 
 function Badge({ item }: { item: string }) {
   return (
-    <li className="inline-flex shrink-0 items-center border-2 border-foreground bg-card px-3 py-1.5 text-xs font-bold text-foreground shadow-[3px_3px_0_var(--ink)]">
+    <li className="inline-flex shrink-0 items-center border-2 border-foreground bg-card px-3 py-1.5 text-xs font-bold text-foreground shadow-[3px_3px_0_var(--ink)] transition-transform hover:-translate-y-0.5">
       {item}
     </li>
   )
@@ -29,14 +29,14 @@ export function Technologies() {
 
       <div className="marquee-mask mt-6 flex flex-col gap-4 overflow-hidden">
         <div className="marquee-row">
-          <ul className="animate-marquee-left flex w-max gap-3 pr-3">
+          <ul className="animate-marquee-left flex w-max gap-4 pr-4">
             {r1.map((item, i) => (
               <Badge key={`${item}-${i}`} item={item} />
             ))}
           </ul>
         </div>
         <div className="marquee-row">
-          <ul className="animate-marquee-right flex w-max gap-3 pr-3">
+          <ul className="animate-marquee-right flex w-max gap-4 pr-4">
             {r2.map((item, i) => (
               <Badge key={`${item}-${i}`} item={item} />
             ))}

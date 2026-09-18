@@ -44,10 +44,10 @@ export default function Page() {
       <SiteNav />
       <main>
         <Hero />
-        <Services />
         <Projects />
-        <Experience />
         <About />
+        <Experience />
+        <Services />
         <Technologies />
         <Certifications />
         <Contact />

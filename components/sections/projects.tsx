@@ -40,11 +40,6 @@ export function BrowserFrame({
         className
       )}
     >
-      <div className="flex items-center gap-1.5 border-b-2 border-foreground bg-chartreuse px-3 py-2">
-        <span className="size-2 border border-foreground bg-coral" />
-        <span className="size-2 border border-foreground bg-chartreuse" />
-        <span className="size-2 border border-foreground bg-cobalt" />
-      </div>
       <div className="relative flex-1 overflow-hidden bg-background">
         {children}
       </div>
@@ -101,9 +96,8 @@ function ProjectCard({
   if (featured) {
     return (
       <article
-        className="group relative cursor-pointer overflow-hidden border-2 border-foreground bg-cobalt text-primary-foreground shadow-[6px_6px_0_var(--ink)] transition-transform duration-300 hover:-translate-y-1"
+        className="group relative overflow-hidden border-2 border-foreground bg-cobalt text-primary-foreground shadow-[6px_6px_0_var(--ink)] transition-transform duration-300 hover:-translate-y-1"
         data-animate
-        onClick={onClick}
       >
         <div className="lg:grid lg:grid-cols-2">
           <ProjectImage
@@ -137,16 +131,32 @@ function ProjectCard({
               ))}
             </div>
             {project.href ? (
-              <a
-                href={project.href}
-                target="_blank"
-                rel="noreferrer"
-                onClick={(e) => e.stopPropagation()}
-                className="mt-8 inline-flex w-fit items-center gap-2 border-2 border-foreground bg-chartreuse px-5 py-2.5 text-sm font-bold text-foreground shadow-[3px_3px_0_var(--ink)] transition-transform hover:translate-x-1 hover:translate-y-1 hover:shadow-none"
+              <div className="mt-8 flex flex-wrap gap-3">
+                <a
+                  href={project.href}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex w-fit items-center gap-2 border-2 border-foreground bg-chartreuse px-5 py-2.5 text-sm font-bold text-foreground shadow-[3px_3px_0_var(--ink)] transition-transform hover:translate-x-1 hover:translate-y-1 hover:shadow-none focus-visible:ring-3 focus-visible:ring-chartreuse/70"
+                >
+                  View project <ArrowUpRight className="size-4" />
+                </a>
+                <button
+                  type="button"
+                  onClick={() => onClick?.()}
+                  className="inline-flex w-fit items-center gap-2 border-2 border-primary-foreground bg-transparent px-5 py-2.5 text-sm font-bold text-primary-foreground transition-colors hover:bg-primary-foreground hover:text-cobalt focus-visible:ring-3 focus-visible:ring-chartreuse/70"
+                >
+                  View case study
+                </button>
+              </div>
+            ) : (
+              <button
+                type="button"
+                onClick={() => onClick?.()}
+                className="mt-8 inline-flex w-fit items-center gap-2 border-2 border-foreground bg-chartreuse px-5 py-2.5 text-sm font-bold text-foreground shadow-[3px_3px_0_var(--ink)] transition-transform hover:translate-x-1 hover:translate-y-1 hover:shadow-none focus-visible:ring-3 focus-visible:ring-chartreuse/70"
               >
-                View project <ArrowUpRight className="size-4" />
-              </a>
-            ) : null}
+                View case study
+              </button>
+            )}
           </div>
         </div>
       </article>
@@ -155,10 +165,9 @@ function ProjectCard({
 
   return (
     <article
-      className="group relative flex cursor-pointer flex-col overflow-hidden border-2 border-l-[8px] border-foreground bg-card transition-transform duration-300 odd:bg-chartreuse even:bg-coral hover:-translate-y-1 hover:shadow-[4px_4px_0_var(--ink)]"
+      className="group relative flex flex-col overflow-hidden border-2 border-l-[8px] border-foreground bg-card transition-transform duration-300 odd:bg-chartreuse even:bg-coral hover:-translate-y-1 hover:shadow-[4px_4px_0_var(--ink)]"
       style={{ borderLeftColor: project.accent }}
       data-animate
-      onClick={onClick}
     >
       <ProjectImage
         project={project}
@@ -203,6 +212,13 @@ function ProjectCard({
             <ProjectTag key={t} label={t} accent={project.accent} />
           ))}
         </div>
+        <button
+          type="button"
+          onClick={() => onClick?.()}
+          className="mt-5 inline-flex w-fit items-center gap-2 border-2 border-foreground bg-card px-3 py-2 text-xs font-bold text-foreground transition-transform hover:translate-x-0.5 hover:translate-y-0.5 focus-visible:ring-3 focus-visible:ring-cobalt/50"
+        >
+          View case study <ArrowUpRight className="size-3.5" />
+        </button>
       </div>
     </article>
   )
@@ -217,9 +233,9 @@ export function Projects() {
   return (
     <section id="projects" className="mx-auto max-w-6xl px-5 py-16 sm:py-24">
       <SectionHeader
-        eyebrow="02 / Projects"
-        title="Selected work — outcomes, not just code."
-        description="Platforms I've built or shaped — from IAM for 40,000+ users to SaaS and civic tech."
+        eyebrow="Selected work"
+        title="Projects I can talk through."
+        description="Real platforms I've built or shaped, from enterprise identity to SaaS and civic tech."
       />
 
       <div className="mt-10">

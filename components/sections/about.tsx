@@ -6,9 +6,9 @@ export function About() {
   return (
     <section id="about" className="mx-auto max-w-5xl px-5 py-16 sm:py-24">
       <SectionHeader
-        eyebrow="04 / About"
-        title="Engineering software that holds up at scale."
-        description={profile.bio}
+        eyebrow="Track record"
+        title="A career spent shipping the hard parts."
+        description="Seven years across telecom, SaaS, healthcare, and HR tech — with systems used by teams and customers in production."
       />
 
       <div
