@@ -8,19 +8,10 @@ import { projects } from "@/lib/portfolio"
 import { cn } from "@/lib/utils"
 import { ProjectModal } from "@/components/project-modal"
 
-export function ProjectTag({
-  label,
-  accent,
-}: {
-  label: string
-  accent: string
-}) {
+export function ProjectTag({ label }: { label: string; accent?: string }) {
   return (
-    <span className="inline-flex items-center gap-1.5 border-2 border-foreground bg-chartreuse px-2.5 py-1 text-[0.65rem] font-bold tracking-wider text-foreground uppercase">
-      <span
-        className="size-1.5 rounded-full"
-        style={{ backgroundColor: accent }}
-      />
+    <span className="inline-flex items-center gap-1.5 border border-foreground/30 bg-card px-2.5 py-1 text-[0.65rem] font-bold tracking-wider text-muted-foreground uppercase">
+      <span className="size-1.5 rounded-full bg-cobalt" />
       {label}
     </span>
   )
@@ -36,7 +27,7 @@ export function BrowserFrame({
   return (
     <div
       className={cn(
-        "relative flex flex-col overflow-hidden border-2 border-foreground bg-card shadow-[4px_4px_0_var(--ink)]",
+        "relative flex flex-col overflow-hidden border-2 border-foreground bg-card",
         className
       )}
     >
@@ -70,16 +61,12 @@ function ProjectImage({
           )}
         />
       ) : (
-        <div
-          className="grid h-full place-items-center text-white/25"
-          style={{ backgroundColor: project.accent }}
-        >
+        <div className="grid h-full place-items-center bg-muted text-muted-foreground">
           <span className="font-mono text-4xl font-bold tracking-tighter select-none">
             {project.name.slice(0, 2).toUpperCase()}
           </span>
         </div>
       )}
-      <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-ink/35 via-transparent to-transparent" />
     </BrowserFrame>
   )
 }
@@ -96,7 +83,7 @@ function ProjectCard({
   if (featured) {
     return (
       <article
-        className="group relative overflow-hidden border-2 border-foreground bg-cobalt text-primary-foreground shadow-[6px_6px_0_var(--ink)] transition-transform duration-300 hover:-translate-y-1"
+        className="group relative overflow-hidden border-2 border-l-8 border-foreground border-l-cobalt bg-card text-foreground shadow-[4px_4px_0_var(--ink)] transition-transform duration-300 hover:-translate-y-1"
         data-animate
       >
         <div className="lg:grid lg:grid-cols-2">
@@ -106,23 +93,23 @@ function ProjectCard({
             objectPosition="center"
           />
           <div className="flex flex-col justify-center p-6 sm:p-8 lg:p-10">
-            <p className="font-mono text-xs font-bold tracking-[0.2em] text-primary-foreground uppercase">
+            <p className="font-mono text-xs font-bold tracking-[0.2em] text-cobalt uppercase">
               Featured Project
             </p>
             {project.outcome ? (
-              <p className="mt-2 inline-flex w-fit border border-primary-foreground/20 bg-primary-foreground/10 px-2.5 py-1 font-mono text-[0.65rem] font-bold tracking-widest text-primary-foreground uppercase">
+              <p className="mt-2 inline-flex w-fit border border-foreground/20 bg-muted px-2.5 py-1 font-mono text-[0.65rem] font-bold tracking-widest text-cobalt uppercase">
                 {project.outcome}
               </p>
             ) : null}
-            <h3 className="mt-3 text-2xl font-black tracking-tight text-primary-foreground sm:text-3xl">
+            <h3 className="mt-3 text-2xl font-black tracking-tight text-foreground sm:text-3xl">
               {project.name}
             </h3>
             {project.period ? (
-              <p className="mt-1 font-mono text-xs text-primary-foreground/80 dark:text-white">
+              <p className="mt-1 font-mono text-xs text-muted-foreground">
                 {project.period}
               </p>
             ) : null}
-            <p className="mt-4 max-w-lg text-sm leading-relaxed text-primary-foreground/90 sm:text-base">
+            <p className="mt-4 max-w-lg text-sm leading-relaxed text-muted-foreground sm:text-base">
               {project.description}
             </p>
             <div className="mt-6 flex flex-wrap gap-2">
@@ -136,14 +123,14 @@ function ProjectCard({
                   href={project.href}
                   target="_blank"
                   rel="noreferrer"
-                  className="inline-flex w-fit items-center gap-2 border-2 border-foreground bg-chartreuse px-5 py-2.5 text-sm font-bold text-foreground shadow-[3px_3px_0_var(--ink)] transition-transform hover:translate-x-1 hover:translate-y-1 hover:shadow-none focus-visible:ring-3 focus-visible:ring-chartreuse/70"
+                  className="inline-flex w-fit items-center gap-2 border-2 border-foreground bg-cobalt px-5 py-2.5 text-sm font-bold text-primary-foreground shadow-[3px_3px_0_var(--ink)] transition-transform hover:translate-x-1 hover:translate-y-1 hover:shadow-none focus-visible:ring-3 focus-visible:ring-cobalt/50"
                 >
                   View project <ArrowUpRight className="size-4" />
                 </a>
                 <button
                   type="button"
                   onClick={() => onClick?.()}
-                  className="inline-flex w-fit items-center gap-2 border-2 border-primary-foreground bg-transparent px-5 py-2.5 text-sm font-bold text-primary-foreground transition-colors hover:bg-primary-foreground hover:text-cobalt focus-visible:ring-3 focus-visible:ring-chartreuse/70"
+                  className="inline-flex w-fit items-center gap-2 border-2 border-foreground bg-transparent px-5 py-2.5 text-sm font-bold text-foreground transition-colors hover:bg-foreground hover:text-card focus-visible:ring-3 focus-visible:ring-cobalt/50"
                 >
                   View case study
                 </button>
@@ -152,7 +139,7 @@ function ProjectCard({
               <button
                 type="button"
                 onClick={() => onClick?.()}
-                className="mt-8 inline-flex w-fit items-center gap-2 border-2 border-foreground bg-chartreuse px-5 py-2.5 text-sm font-bold text-foreground shadow-[3px_3px_0_var(--ink)] transition-transform hover:translate-x-1 hover:translate-y-1 hover:shadow-none focus-visible:ring-3 focus-visible:ring-chartreuse/70"
+                className="mt-8 inline-flex w-fit items-center gap-2 border-2 border-foreground bg-cobalt px-5 py-2.5 text-sm font-bold text-primary-foreground shadow-[3px_3px_0_var(--ink)] transition-transform hover:translate-x-1 hover:translate-y-1 hover:shadow-none focus-visible:ring-3 focus-visible:ring-cobalt/50"
               >
                 View case study
               </button>
@@ -165,8 +152,7 @@ function ProjectCard({
 
   return (
     <article
-      className="group relative flex flex-col overflow-hidden border-2 border-l-[8px] border-foreground bg-card transition-transform duration-300 odd:bg-chartreuse even:bg-coral hover:-translate-y-1 hover:shadow-[4px_4px_0_var(--ink)]"
-      style={{ borderLeftColor: project.accent }}
+      className="group relative flex flex-col overflow-hidden border-2 border-l-4 border-foreground border-l-cobalt bg-card shadow-[2px_2px_0_var(--ink)] transition-transform duration-300 hover:-translate-y-1 hover:shadow-[4px_4px_0_var(--ink)]"
       data-animate
     >
       <ProjectImage
@@ -186,7 +172,7 @@ function ProjectCard({
               {project.name}
             </h3>
             {project.period ? (
-              <p className="mt-0.5 font-mono text-xs text-muted-foreground dark:text-white">
+              <p className="mt-0.5 font-mono text-xs text-muted-foreground">
                 {project.period}
               </p>
             ) : null}
@@ -204,7 +190,7 @@ function ProjectCard({
             </a>
           ) : null}
         </div>
-        <p className="mt-3 line-clamp-3 flex-1 text-sm leading-relaxed text-muted-foreground dark:text-white">
+        <p className="mt-3 line-clamp-3 flex-1 text-sm leading-relaxed text-muted-foreground">
           {project.description}
         </p>
         <div className="mt-5 flex flex-wrap gap-2">
