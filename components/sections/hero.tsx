@@ -19,7 +19,7 @@ export function Hero() {
           {profile.available ? (
             <p
               data-animate
-              className="mt-5 inline-flex items-center gap-2 border-2 border-foreground bg-chartreuse px-3.5 py-1.5 text-xs font-bold text-foreground shadow-[3px_3px_0_var(--ink)]"
+              className="mt-5 inline-flex items-center gap-2 rounded-lg border-2 border-foreground bg-chartreuse px-3.5 py-1.5 text-xs font-bold text-foreground shadow-[3px_3px_0_var(--ink)]"
             >
               <span className="relative flex size-2">
                 <span className="absolute inline-flex size-full animate-ping rounded-full bg-cobalt opacity-75" />
@@ -49,7 +49,7 @@ export function Hero() {
           <div data-animate className="mt-8 flex flex-wrap items-center gap-4">
             <a
               href="#projects"
-              className="inline-flex items-center gap-2 border-2 border-foreground bg-cobalt px-6 py-3 text-sm font-bold text-primary-foreground shadow-[4px_4px_0_var(--ink)] transition-transform duration-200 hover:translate-x-1 hover:translate-y-1 hover:shadow-none"
+              className="inline-flex items-center gap-2 rounded-lg border-2 border-foreground bg-cobalt px-6 py-3 text-sm font-bold text-primary-foreground shadow-[4px_4px_0_var(--ink)] transition-transform duration-200 hover:translate-x-1 hover:translate-y-1 hover:shadow-none"
             >
               Explore my work <ArrowRight className="size-4" />
             </a>
@@ -57,7 +57,7 @@ export function Hero() {
               href="/Muhamad_Habibi_Azmi_Fullstack_Engineer_CV.pdf"
               target="_blank"
               rel="noreferrer"
-              className="inline-flex items-center gap-2 border-2 border-foreground bg-card px-6 py-3 text-sm font-bold text-foreground shadow-[3px_3px_0_var(--ink)] transition-transform hover:translate-x-1 hover:translate-y-1 hover:shadow-none"
+              className="inline-flex items-center gap-2 rounded-lg border-2 border-foreground bg-card px-6 py-3 text-sm font-bold text-foreground shadow-[3px_3px_0_var(--ink)] transition-transform hover:translate-x-1 hover:translate-y-1 hover:shadow-none"
             >
               Download CV <Download className="size-4" />
             </a>
@@ -71,14 +71,14 @@ export function Hero() {
         </div>
 
         <div className="relative lg:col-span-5" data-animate>
-          <figure className="mx-auto max-w-sm border-2 border-foreground bg-coral p-3 shadow-[6px_6px_0_var(--ink)]">
+          <figure className="mx-auto max-w-sm overflow-hidden rounded-xl border-2 border-foreground bg-coral p-3 shadow-[6px_6px_0_var(--ink)]">
             <Image
               src="/me.webp"
               alt={profile.name}
               width={400}
               height={500}
               sizes="(max-width: 1024px) 80vw, 25vw"
-              className="aspect-[4/5] h-auto w-full object-cover"
+              className="aspect-[4/5] h-auto w-full rounded-lg object-cover"
               priority
             />
             <figcaption className="flex items-center justify-between gap-3 pt-3 font-mono text-[0.65rem] font-bold tracking-wider text-foreground uppercase">

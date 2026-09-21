@@ -18,9 +18,9 @@ export function Services() {
           return (
             <article
               key={s.title}
-              className="flex flex-col border-2 border-foreground bg-card p-6 shadow-[4px_4px_0_var(--ink)] transition-transform hover:-translate-y-1"
+              className="flex flex-col rounded-xl border-2 border-foreground bg-card p-6 shadow-[4px_4px_0_var(--ink)] transition-transform hover:-translate-y-1"
             >
-              <span className="grid size-10 place-items-center border-2 border-foreground bg-chartreuse text-foreground">
+              <span className="grid size-10 place-items-center rounded-md border-2 border-foreground bg-chartreuse text-foreground">
                 <Icon className="size-5" />
               </span>
               <h3 className="mt-4 text-base font-black tracking-tight">
@@ -33,7 +33,7 @@ export function Services() {
                 {s.tags.map((t) => (
                   <span
                     key={t}
-                    className="border border-foreground bg-muted px-2 py-1 font-mono text-[0.65rem] font-bold tracking-wide"
+                    className="rounded-sm border border-foreground bg-muted px-2 py-1 font-mono text-[0.65rem] font-bold tracking-wide"
                   >
                     {t}
                   </span>

@@ -83,7 +83,7 @@ export function Experience() {
                 />
 
                 <div className="w-full max-w-3xl">
-                  <article className="border-2 border-foreground bg-card p-6 shadow-[4px_4px_0_var(--ink)] transition-transform duration-200 hover:-translate-y-1">
+                  <article className="rounded-xl border-2 border-foreground bg-card p-6 shadow-[4px_4px_0_var(--ink)] transition-transform duration-200 hover:-translate-y-1">
                     <time
                       dateTime={exp.period}
                       className="font-mono text-xs font-bold text-cobalt"
@@ -114,7 +114,7 @@ export function Experience() {
                           {exp.projects.map((p) => (
                             <li
                               key={p.name}
-                              className="flex flex-wrap items-baseline gap-x-2 border-2 border-foreground bg-muted px-3 py-2 text-sm"
+                              className="flex flex-wrap items-baseline gap-x-2 rounded-md border-2 border-foreground bg-muted px-3 py-2 text-sm"
                             >
                               {p.href ? (
                                 <a

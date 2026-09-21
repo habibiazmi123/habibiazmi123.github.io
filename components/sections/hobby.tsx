@@ -26,7 +26,7 @@ export function Hobby() {
             href={instagram.href}
             target="_blank"
             rel="noreferrer"
-            className="inline-flex items-center gap-2 border-2 border-foreground bg-chartreuse px-5 py-3 text-sm font-bold text-foreground shadow-[4px_4px_0_var(--ink)] transition-transform hover:translate-x-1 hover:translate-y-1 hover:shadow-none focus-visible:ring-3 focus-visible:ring-cobalt/50"
+            className="inline-flex items-center gap-2 rounded-lg border-2 border-foreground bg-chartreuse px-5 py-3 text-sm font-bold text-foreground shadow-[4px_4px_0_var(--ink)] transition-transform hover:translate-x-1 hover:translate-y-1 hover:shadow-none focus-visible:ring-3 focus-visible:ring-cobalt/50"
           >
             View @{instagram.href.split("/").filter(Boolean).pop()} on Instagram
             <ArrowUpRight className="size-4" aria-hidden="true" />

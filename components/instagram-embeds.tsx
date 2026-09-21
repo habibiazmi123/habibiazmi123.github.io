@@ -60,7 +60,7 @@ export function InstagramEmbeds({
         ? permalinks.map((permalink) => (
             <div
               key={permalink}
-              className="grid min-h-[320px] place-items-center border-2 border-foreground bg-card shadow-[6px_6px_0_var(--ink)]"
+              className="grid min-h-[320px] place-items-center rounded-xl border-2 border-foreground bg-card shadow-[6px_6px_0_var(--ink)]"
             >
               <a
                 href={permalink}
@@ -75,7 +75,7 @@ export function InstagramEmbeds({
         : permalinks.map((permalink) => (
             <div
               key={permalink}
-              className="min-w-0 overflow-hidden border-2 border-foreground bg-card shadow-[6px_6px_0_var(--ink)]"
+              className="min-w-0 overflow-hidden rounded-xl border-2 border-foreground bg-card shadow-[6px_6px_0_var(--ink)]"
             >
               <blockquote
                 className="instagram-media !m-0 !w-full !max-w-none"

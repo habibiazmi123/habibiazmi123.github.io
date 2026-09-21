@@ -31,7 +31,7 @@ export function About() {
       </div>
 
       <div
-        className="mt-12 max-w-3xl border-2 border-foreground bg-card p-6 text-sm leading-relaxed text-muted-foreground shadow-[4px_4px_0_var(--ink)] sm:p-8 sm:text-base"
+        className="mt-12 max-w-3xl rounded-xl border-2 border-foreground bg-card p-6 text-sm leading-relaxed text-muted-foreground shadow-[4px_4px_0_var(--ink)] sm:p-8 sm:text-base"
         data-animate
       >
         <p>

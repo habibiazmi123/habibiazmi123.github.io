@@ -10,7 +10,7 @@ import { ProjectModal } from "@/components/project-modal"
 
 export function ProjectTag({ label }: { label: string; accent?: string }) {
   return (
-    <span className="inline-flex items-center gap-1.5 border border-foreground/30 bg-card px-2.5 py-1 text-[0.65rem] font-bold tracking-wider text-muted-foreground uppercase">
+    <span className="inline-flex items-center gap-1.5 rounded-md border border-foreground/30 bg-card px-2.5 py-1 text-[0.65rem] font-bold tracking-wider text-muted-foreground uppercase">
       <span className="size-1.5 rounded-full bg-cobalt" />
       {label}
     </span>
@@ -27,7 +27,7 @@ export function BrowserFrame({
   return (
     <div
       className={cn(
-        "relative flex flex-col overflow-hidden border-2 border-foreground bg-card",
+        "relative flex flex-col overflow-hidden rounded-xl border-2 border-foreground bg-card",
         className
       )}
     >
@@ -83,7 +83,7 @@ function ProjectCard({
   if (featured) {
     return (
       <article
-        className="group relative overflow-hidden border-2 border-l-8 border-foreground border-l-cobalt bg-card text-foreground shadow-[4px_4px_0_var(--ink)] transition-transform duration-300 hover:-translate-y-1"
+        className="group relative overflow-hidden rounded-xl border-2 border-l-8 border-foreground border-l-cobalt bg-card text-foreground shadow-[4px_4px_0_var(--ink)] transition-transform duration-300 hover:-translate-y-1"
         data-animate
       >
         <div className="lg:grid lg:grid-cols-2">
@@ -97,7 +97,7 @@ function ProjectCard({
               Featured Project
             </p>
             {project.outcome ? (
-              <p className="mt-2 inline-flex w-fit border border-foreground/20 bg-muted px-2.5 py-1 font-mono text-[0.65rem] font-bold tracking-widest text-cobalt uppercase">
+                <p className="mt-2 inline-flex w-fit rounded-lg border border-foreground/20 bg-muted px-2.5 py-1 font-mono text-[0.65rem] font-bold tracking-widest text-cobalt uppercase">
                 {project.outcome}
               </p>
             ) : null}
@@ -123,14 +123,14 @@ function ProjectCard({
                   href={project.href}
                   target="_blank"
                   rel="noreferrer"
-                  className="inline-flex w-fit items-center gap-2 border-2 border-foreground bg-cobalt px-5 py-2.5 text-sm font-bold text-primary-foreground shadow-[3px_3px_0_var(--ink)] transition-transform hover:translate-x-1 hover:translate-y-1 hover:shadow-none focus-visible:ring-3 focus-visible:ring-cobalt/50"
+                  className="inline-flex w-fit items-center gap-2 rounded-lg border-2 border-foreground bg-cobalt px-5 py-2.5 text-sm font-bold text-primary-foreground shadow-[3px_3px_0_var(--ink)] transition-transform hover:translate-x-1 hover:translate-y-1 hover:shadow-none focus-visible:ring-3 focus-visible:ring-cobalt/50"
                 >
                   View project <ArrowUpRight className="size-4" />
                 </a>
                 <button
                   type="button"
                   onClick={() => onClick?.()}
-                  className="inline-flex w-fit items-center gap-2 border-2 border-foreground bg-transparent px-5 py-2.5 text-sm font-bold text-foreground transition-colors hover:bg-foreground hover:text-card focus-visible:ring-3 focus-visible:ring-cobalt/50"
+                  className="inline-flex w-fit items-center gap-2 rounded-lg border-2 border-foreground bg-transparent px-5 py-2.5 text-sm font-bold text-foreground transition-colors hover:bg-foreground hover:text-card focus-visible:ring-3 focus-visible:ring-cobalt/50"
                 >
                   View case study
                 </button>
@@ -139,7 +139,7 @@ function ProjectCard({
               <button
                 type="button"
                 onClick={() => onClick?.()}
-                className="mt-8 inline-flex w-fit items-center gap-2 border-2 border-foreground bg-cobalt px-5 py-2.5 text-sm font-bold text-primary-foreground shadow-[3px_3px_0_var(--ink)] transition-transform hover:translate-x-1 hover:translate-y-1 hover:shadow-none focus-visible:ring-3 focus-visible:ring-cobalt/50"
+                className="mt-8 inline-flex w-fit items-center gap-2 rounded-lg border-2 border-foreground bg-cobalt px-5 py-2.5 text-sm font-bold text-primary-foreground shadow-[3px_3px_0_var(--ink)] transition-transform hover:translate-x-1 hover:translate-y-1 hover:shadow-none focus-visible:ring-3 focus-visible:ring-cobalt/50"
               >
                 View case study
               </button>
@@ -152,7 +152,7 @@ function ProjectCard({
 
   return (
     <article
-      className="group relative flex flex-col overflow-hidden border-2 border-l-4 border-foreground border-l-cobalt bg-card shadow-[2px_2px_0_var(--ink)] transition-transform duration-300 hover:-translate-y-1 hover:shadow-[4px_4px_0_var(--ink)]"
+      className="group relative flex flex-col overflow-hidden rounded-xl border-2 border-l-4 border-foreground border-l-cobalt bg-card shadow-[2px_2px_0_var(--ink)] transition-transform duration-300 hover:-translate-y-1 hover:shadow-[4px_4px_0_var(--ink)]"
       data-animate
     >
       <ProjectImage
@@ -184,7 +184,7 @@ function ProjectCard({
               rel="noreferrer"
               aria-label={`Open ${project.name}`}
               onClick={(e) => e.stopPropagation()}
-              className="grid size-8 shrink-0 place-items-center border-2 border-foreground bg-card text-foreground transition-transform hover:translate-x-0.5 hover:translate-y-0.5"
+              className="grid size-8 shrink-0 place-items-center rounded-md border-2 border-foreground bg-card text-foreground transition-transform hover:translate-x-0.5 hover:translate-y-0.5"
             >
               <ExternalLink className="size-4" />
             </a>
@@ -201,7 +201,7 @@ function ProjectCard({
         <button
           type="button"
           onClick={() => onClick?.()}
-          className="mt-5 inline-flex w-fit items-center gap-2 border-2 border-foreground bg-card px-3 py-2 text-xs font-bold text-foreground transition-transform hover:translate-x-0.5 hover:translate-y-0.5 focus-visible:ring-3 focus-visible:ring-cobalt/50"
+          className="mt-5 inline-flex w-fit items-center gap-2 rounded-lg border-2 border-foreground bg-card px-3 py-2 text-xs font-bold text-foreground transition-transform hover:translate-x-0.5 hover:translate-y-0.5 focus-visible:ring-3 focus-visible:ring-cobalt/50"
         >
           View case study <ArrowUpRight className="size-3.5" />
         </button>

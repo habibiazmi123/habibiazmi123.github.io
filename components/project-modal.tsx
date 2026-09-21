@@ -98,7 +98,7 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
                 href={project.href}
                 target="_blank"
                 rel="noreferrer"
-                className="mt-5 inline-flex w-fit items-center gap-2 border-2 border-foreground bg-cobalt px-5 py-2.5 text-sm font-bold text-primary-foreground shadow-[4px_4px_0_var(--ink)] transition-transform hover:translate-x-1 hover:translate-y-1 hover:shadow-none"
+                className="mt-5 inline-flex w-fit items-center gap-2 rounded-lg border-2 border-foreground bg-cobalt px-5 py-2.5 text-sm font-bold text-primary-foreground shadow-[4px_4px_0_var(--ink)] transition-transform hover:translate-x-1 hover:translate-y-1 hover:shadow-none"
               >
                 View project <ArrowUpRight className="size-4" />
               </a>
