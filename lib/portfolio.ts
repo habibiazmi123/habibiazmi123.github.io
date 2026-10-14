@@ -17,7 +17,7 @@ export const profile = {
   stats: [
     { value: "7+", label: "Years experience" },
     { value: "40k+", label: "Users managed" },
-    { value: "20+", label: "Projects shipped" },
+    { value: "50+", label: "Projects shipped" },
     { value: "3", label: "Industries" },
   ],
 } as const
